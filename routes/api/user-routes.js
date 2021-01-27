@@ -1,13 +1,13 @@
 const express = require("express");
 const router = express.Router();
-const bcrypt = require("bcryptjs");
+// const bcrypt = require("bcryptjs");
 const cors = require('cors');
-const jwt = require("jsonwebtoken");
-const keys = require("../../config/keys");
+// const jwt = require("jsonwebtoken");
+// const keys = require("../../config/keys");
 const passport = require("passport");
 
 // Requiring our models and passport as we've configured it
-const db = require("../models");
+const db = require("../../models");
 router.use(cors())
 process.env.SECRET_KEY = 'secret';
 
@@ -45,17 +45,19 @@ router.get("/logout", function (req, res) {
 
 // Route for getting some data about our user to be used client side
 router.get("/api/displayusers", function (req, res) {
-    if (!req.user) {
-        // The user is not logged in, send back an empty object
-        res.json({});
-    } else {
-        // Otherwise send back the user's email and id
-        // Sending back a password, even a hashed password, isn't a good idea
-        res.json({
-            email: req.user.email,
-            id: req.user.id
-        });
-    }
+    // if (!req.user) {
+    //     // The user is not logged in, send back an empty object
+    //     res.json({});
+    // } else {
+    // Otherwise send back the user's email and id
+    // Sending back a password, even a hashed password, isn't a good idea
+    res.json({
+        email: req.user.email,
+        id: req.user.id,
+        first_name: req.user.first_name,
+        last_name: req.user.last_name
+    });
+
 });
 
 module.exports = router;

@@ -30,7 +30,7 @@ class Register extends Component {
             formIsValid = false;
             errors["email"] = "Email is not valid";
         }
-        else {}
+        else { }
 
         // password
         if (!this.state.password) {
@@ -41,7 +41,7 @@ class Register extends Component {
             formIsValid = false;
             errors["password"] = "Password must be at least 6 characters";
         }
-        else {}
+        else { }
 
         // firstName
         if (!this.state.first_name) {
@@ -54,7 +54,7 @@ class Register extends Component {
                 errors["first_name"] = "Only letters";
             }
         }
-        else {}
+        else { }
 
         // lastName
         if (!this.state.last_name) {
@@ -65,7 +65,7 @@ class Register extends Component {
             formIsValid = false;
             errors["last_name"] = "Only letters";
         }
-        else {}
+        else { }
 
         this.setState({ errors: errors });
         return formIsValid;
