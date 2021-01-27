@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import tcaLogo from "../assets/images/tca.JPG"
 
 
 class LandingJumbo extends Component {
@@ -7,16 +8,16 @@ class LandingJumbo extends Component {
             <div className="jumbotron mt-5 landingJumbo">
                 <div className='col-sm-8 mx-auto jumboText'>
                     <h1 className='d-flex justify-content-center companyName'>
-                        <div className="sidebar-brand-icon rotate-n-15 mr-2">
-                            <i className="far fa-user-circle" />
-                        </div> 
-                        <div>TITLE</div>
+                        <div>
+                            <img src={tcaLogo} alt="tcaLogo" />
+                        </div>
+
                     </h1>
-                    <h2 className='text-center companySlogan'>BEST SLOGAN HERE</h2>
+                    <h2 className='text-center companySlogan'>Financial Planning Update Portal</h2>
                 </div>
             </div>
         );
-    } 
+    }
 }
 
 export default LandingJumbo;

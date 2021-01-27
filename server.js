@@ -1,55 +1,42 @@
-const express = require("express");
-const cors = require('cors');
-const logger = require("morgan");
-// const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
+// Requiring necessary npm packages
+var express = require("express");
+var session = require("express-session");
+// Requiring passport as we've configured it
+var passport = require("./config/passport");
 const routes = require("./routes");
-const passport = require("passport");
-const app = express();
+const cors = require('cors');
 const dotenv = require("dotenv");
 
 dotenv.config();
 
+// Setting up port and requiring models for syncing
 const PORT = process.env.PORT || 5001;
+var db = require("./models");
 
-// Define middleware here
-app.use(logger("dev"));
-app.use(express.urlencoded({ extended: false }));
+// Creating express app and configuring middleware needed for authentication
+var app = express();
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-// Serve up static assets (usually on heroku)
+app.use(express.static("public"));
+// We need to use sessions to keep track of our user's login status
+app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
+
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
 // Bodyparser middleware
-app.use(bodyParser.json());
-app.use(cors());
-app.use(
-  bodyParser.urlencoded({
-    extended: false
-  })
-);
+// app.use(bodyParser.json());
+// app.use(cors());
+// app.use(
+//   bodyParser.urlencoded({
+//     extended: false
+//   })
+// );
 
-app.use(express.static("public"));
-// // DB Config
-// const MONGODB_URI = ""
-// const mongoURI = "mongodb+srv://trilogy:trilogy@cluster0.u8m9s.mongodb.net/mernlogin?retryWrites=true&w=majority";
-
-// Connect to MongoDB
-// mongoose.connect( MONGODB_URI || mongoURI, {
-//   useNewUrlParser: true,
-//   useFindAndModify: false
-// })
-// .then(() => console.log("MongoDB successfully connected"))
-// .catch(err => console.log(err));
-
-// Passport middleware
-app.use(passport.initialize());
-
-// Passport config
-require("./config/passport")(passport);
-
-// Routes
+// Requiring our routes
 app.use(routes);
 
 app.use((req, res, next) => {
@@ -58,8 +45,7 @@ app.use((req, res, next) => {
   next();
 });
 
-
-// / Syncing our database and logging a message to the user upon success
+// Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(function () {
   app.listen(PORT, function () {
     console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
