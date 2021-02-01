@@ -6,7 +6,7 @@ module.exports = function (sequelize, DataTypes) {
     // The email cannot be null, and must be a proper email before creation
     email: {
       type: DataTypes.STRING,
-      allowNull: false,
+
       unique: true,
       validate: {
         isEmail: true
@@ -15,16 +15,72 @@ module.exports = function (sequelize, DataTypes) {
     // The password cannot be null
     password: {
       type: DataTypes.STRING,
-      allowNull: false
+
     },
     first_name: {
       type: DataTypes.STRING,
-      allowNull: false,
+
     },
     last_name: {
       type: DataTypes.STRING,
-      allowNull: false,
-    }
+
+    },
+    salutation: {
+      type: DataTypes.STRING,
+
+    },
+    preferredName: {
+      type: DataTypes.STRING,
+
+    },
+    date_of_birth: {
+      type: DataTypes.DATEONLY,
+
+    },
+    sex: {
+      type: DataTypes.STRING,
+
+    },
+    marital_status: {
+      type: DataTypes.STRING,
+
+    },
+    tax_resident: {
+      type: DataTypes.BOOLEAN,
+
+    },
+    citizen: {
+      type: DataTypes.BOOLEAN,
+
+    },
+    country_of_origin: {
+      type: DataTypes.STRING,
+
+    },
+    preservation_age: {
+      type: DataTypes.INTEGER,
+
+    },
+    age_pension_age: {
+      type: DataTypes.INTEGER,
+
+    },
+    address: {
+      type: DataTypes.STRING,
+
+    },
+    mobile: {
+      type: DataTypes.INTEGER,
+
+    },
+    home_phone: {
+      type: DataTypes.INTEGER,
+
+    },
+    work_phone: {
+      type: DataTypes.INTEGER,
+
+    },
 
   });
   // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
@@ -36,5 +92,7 @@ module.exports = function (sequelize, DataTypes) {
   User.addHook("beforeCreate", function (user) {
     user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
   });
+
+  User.sync();
   return User;
 };

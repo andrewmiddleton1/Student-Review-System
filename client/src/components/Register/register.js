@@ -87,10 +87,10 @@ class Register extends Component {
         var result = this.handleValidation();
         console.log(result);
         if (this.handleValidation()) {
-            getUsers().then(data => {
-                console.log(data);
+            getUsers().then(response => {
+                console.log(response);
 
-                var destination = data.map(element => {
+                var destination = response.data.map(element => {
                     if (element.email === this.state.email) {
                         console.log('foundmatch');
                         console.log(element.email)
@@ -98,10 +98,15 @@ class Register extends Component {
                     }
                 }).filter(item => { return item; })[0];
                 if (!destination) {
+
                     registerUser(userData).then(res => {
-                        this.props.history.push('/login')
+                        console.log(res);
+                        if (res) {
+                            this.props.history.push('/dashboard');
+
+                        }
                     })
-                    console.log("Form submitted");
+                    console.log("Registration Form submitted");
                 }
                 else {
                     errors["email"] = "Email already exists";

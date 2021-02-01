@@ -2,10 +2,11 @@
 var express = require("express");
 var session = require("express-session");
 // Requiring passport as we've configured it
-var passport = require("./config/passport");
+var passport = require("passport");
 const routes = require("./routes");
 const cors = require('cors');
 const dotenv = require("dotenv");
+const bodyParser = require("body-parser");
 
 dotenv.config();
 
@@ -28,13 +29,13 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Bodyparser middleware
-// app.use(bodyParser.json());
-// app.use(cors());
-// app.use(
-//   bodyParser.urlencoded({
-//     extended: false
-//   })
-// );
+app.use(bodyParser.json());
+app.use(cors());
+app.use(
+  bodyParser.urlencoded({
+    extended: false
+  })
+);
 
 // Requiring our routes
 app.use(routes);
