@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 // Creating our User model
 module.exports = function (sequelize, DataTypes) {
     var Liabilities = sequelize.define("Liabilities", {

@@ -1,17 +1,16 @@
-import React, { Component } from "react";
+import React from "react";
 import { inputClientAssets, inputClientLiabilities, inputClientExpenses } from '../UserFunctions/userFunctions';
 
-class CreateAssetsAndLiabilitiesOutput extends Component {
+const CreateAssetsAndLiabilitiesOutput = (props) => {
 
-    render() {
-        return (
-            <div>
+    return (
+        <div>
 
-            </div>
-        )
+        </div>
+    )
 
 
-    }
+
 }
 
 export default CreateAssetsAndLiabilitiesOutput;

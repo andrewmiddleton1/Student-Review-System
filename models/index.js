@@ -1,4 +1,5 @@
-'use strict';
+/* eslint-disable prettier/prettier */
+
 
 var fs = require('fs');
 var path = require('path');

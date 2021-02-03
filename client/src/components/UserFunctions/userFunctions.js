@@ -1,3 +1,4 @@
+/* eslint-disable no-unreachable */
 import axios from 'axios';
 
 //change port
@@ -132,7 +133,7 @@ export const inputClientExpenses = userData => {
 export const inputClientParticulars = userData => {
     // console.log(userData);
     return axios
-        .post('/api/particulars', {
+        .put('/api/particulars', {
 
             email: userData.email,
             password: userData.password,
@@ -152,8 +153,6 @@ export const inputClientParticulars = userData => {
             mobile: userData.mobile,
             home_phone: userData.home_phone,
             work_phone: userData.work_phone,
-
-
 
         })
         .then(res => {

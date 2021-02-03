@@ -12,7 +12,7 @@ function Sidebar() {
                                         <div className="sidebar-brand-icon rotate-n-15">
                                                 <i className="far fa-user-circle" />
                                         </div>
-                                        <div className="sidebar-brand-text mx-3">Company</div>
+                                        <div className="sidebar-brand-text mx-3">TCA</div>
                                 </Link>
 
                                 {/* Divider */}
