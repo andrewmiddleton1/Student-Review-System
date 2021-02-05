@@ -1,8 +1,10 @@
 import React from "react";
 import { inputClientAssets } from "../UserFunctions/userFunctions";
+import { useAppContext } from '../../store';
 
 // props are the argument of the function
 const InputClientAssets = (props) => {
+    const [state, dispatch] = useAppContext();
     // in a class component you would initialize the state in the constructor,
     // with functional components you do it in the useState Hook, i called
     // this state 'inputState', you can have more than one state
@@ -20,9 +22,16 @@ const InputClientAssets = (props) => {
         boatWatercraft: "",
         otherMachinery: "",
         otherAsset: "",
+        ...state.user,
+
+        // user_id: state.user[user_id];
+
         errors: {}
+
+
     });
 
+    console.log(state.user);
     //what used to be a method in the class becomes a function:
 
     const handleValidation = () => {

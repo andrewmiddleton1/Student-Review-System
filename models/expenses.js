@@ -125,5 +125,15 @@ module.exports = function (sequelize, DataTypes) {
         },
     });
 
+    Expenses.associate = function (models) {
+        // We're saying that a Expenses should belong to a User
+        // Expenses can't be created without a User due to the foreign key constraint
+        Expenses.belongsTo(models.User, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
+    };
+
     return Expenses;
 };

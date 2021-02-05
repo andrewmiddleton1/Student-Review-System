@@ -133,7 +133,7 @@ export const inputClientExpenses = userData => {
 export const inputClientParticulars = userData => {
     // console.log(userData);
     return axios
-        .put('/api/particulars', {
+        .put('/api/particulars/' + userData.email, {
 
             email: userData.email,
             password: userData.password,

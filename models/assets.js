@@ -89,5 +89,15 @@ module.exports = function (sequelize, DataTypes) {
         },
     });
 
+    Assets.associate = function (models) {
+        // We're saying that a Assets should belong to a User
+        //  Assets can't be created without a User due to the foreign key constraint
+        Assets.belongsTo(models.User, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
+    };
+
     return Assets;
 };

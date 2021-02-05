@@ -3,6 +3,7 @@
 var bcrypt = require("bcryptjs");
 // Creating our User model
 module.exports = function (sequelize, DataTypes) {
+
   var User = sequelize.define("User", {
     // 
     email: {
@@ -80,6 +81,28 @@ module.exports = function (sequelize, DataTypes) {
     },
 
   });
+
+  User.associate = function (models) {
+    // Associating User with Assets, Expenses, Income and Liabilities
+    // When an User is deleted, also delete any associated Posts
+    User.hasMany(models.Assets, {
+      onDelete: "cascade"
+    });
+
+    User.hasMany(models.Expenses, {
+      onDelete: "cascade"
+    });
+
+    User.hasMany(models.Income, {
+      onDelete: "cascade"
+    });
+
+    User.hasMany(models.Liabilities, {
+      onDelete: "cascade"
+    });
+
+
+  };
   // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
   User.prototype.validPassword = function (password) {
     return bcrypt.compareSync(password, this.password);

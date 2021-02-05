@@ -56,5 +56,15 @@ module.exports = function (sequelize, DataTypes) {
 
     });
 
+    Liabilities.associate = function (models) {
+        // We're saying that a Liabilities should belong to a User
+        // Liabilities can't be created without a User due to the foreign key constraint
+        Liabilities.belongsTo(models.User, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
+    };
+
     return Liabilities;
 };

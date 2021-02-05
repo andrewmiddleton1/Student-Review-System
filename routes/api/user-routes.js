@@ -135,8 +135,9 @@ router.post('/api/expenses', function (req, res) {
         });
 });
 
-router.put('/api/particulars', function (req, res) {
+router.put('/api/particulars/:email', function (req, res) {
     console.log('Updating Particulars', req.body);
+    console.log(req.params.email);
     db.User.update(
         {
             email: req.body.email,
