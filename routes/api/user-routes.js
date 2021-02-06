@@ -209,24 +209,22 @@ router.get('/logout', function (req, res) {
 // Route for getting some data about our all users to be used client side
 router.get('/api/displayusers', function (req, res) {
     db.User.findAll({})
-        .then((data) => res.json(data))
-        .catch((err) => res.send(err));
+        .then(function (dbUser) {
+            res.json(dbUser);
+        });
 });
 
 // Route for getting some data about a particular user to be used client side
 router.get("/api/users/:email", function (req, res) {
-    // Here we add an "include" property to our options in our findOne query
-    // We set the value to an array of the models we want to include in a left outer join
-    // In this case, just db.Post
     db.User.findOne({
         where: {
             email: req.params.email
         },
 
-    }).then((data) => res.json(data))
-        .catch((err) => res.send(err));
+    }).then(function (dbUser) {
+        res.json(dbUser);
+    });
 });
-
 
 
 module.exports = router;

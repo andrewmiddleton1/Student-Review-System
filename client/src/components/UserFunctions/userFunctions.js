@@ -191,6 +191,7 @@ export const getOneClientByEmail = emailForFunction => {
         }).then(response => {
             return response
             console.log(response);
+
         })
         .catch(err => {
             console.log(err);

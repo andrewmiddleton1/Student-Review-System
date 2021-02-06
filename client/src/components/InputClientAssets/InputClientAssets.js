@@ -1,5 +1,5 @@
 import React from "react";
-import { getOneClientByEmail, inputClientAssets } from "../UserFunctions/userFunctions";
+import { getOneClientByEmail, inputClientAssets, getUsers } from "../UserFunctions/userFunctions";
 import { useAppContext } from '../../store';
 
 // props are the argument of the function
@@ -9,15 +9,27 @@ const InputClientAssets = (props) => {
     // with functional components you do it in the useState Hook, i called
     // this state 'inputState', you can have more than one state
 
+    let UserEmailId = [];
     const emailForFunction = state.user.email;
     console.log(emailForFunction);
+    console.log(UserEmailId);
+    console.log(UserEmailId[0]);
 
-    getOneClientByEmail()
-        .then((data) => {
-            console.log(data);
+
+
+
+    getOneClientByEmail(emailForFunction)
+        .then((currentUserData) => {
+            console.log(currentUserData);
+            console.log(currentUserData.data.id);
+            UserEmailId.push(currentUserData);
         });
 
 
+    getUsers()
+        .then((data) => {
+            console.log(data);
+        });
 
     const [inputState, setInputState] = React.useState({
         principalResidence: "",
@@ -34,7 +46,7 @@ const InputClientAssets = (props) => {
         otherAsset: "",
         ...state.user,
 
-        // user_id: state.user[user_id];
+        UserID: UserEmailId,
 
         errors: {}
 
@@ -189,6 +201,8 @@ const InputClientAssets = (props) => {
             boatWatercraft: inputState.boatWatercraft,
             otherMachinery: inputState.otherMachinery,
             otherAsset: inputState.otherAsset,
+            // UserId: currentUserData,
+
 
         };
         var result = handleValidation();
