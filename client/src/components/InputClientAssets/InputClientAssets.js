@@ -1,5 +1,5 @@
 import React from "react";
-import { inputClientAssets } from "../UserFunctions/userFunctions";
+import { getOneClientByEmail, inputClientAssets } from "../UserFunctions/userFunctions";
 import { useAppContext } from '../../store';
 
 // props are the argument of the function
@@ -8,6 +8,16 @@ const InputClientAssets = (props) => {
     // in a class component you would initialize the state in the constructor,
     // with functional components you do it in the useState Hook, i called
     // this state 'inputState', you can have more than one state
+
+    const emailForFunction = state.user.email;
+    console.log(emailForFunction);
+
+    getOneClientByEmail()
+        .then((data) => {
+            console.log(data);
+        });
+
+
 
     const [inputState, setInputState] = React.useState({
         principalResidence: "",
@@ -32,6 +42,7 @@ const InputClientAssets = (props) => {
     });
 
     console.log(state.user);
+    console.log(state.user.first_name)
     //what used to be a method in the class becomes a function:
 
     const handleValidation = () => {
@@ -177,7 +188,8 @@ const InputClientAssets = (props) => {
             caravanCamper: inputState.caravanCamper,
             boatWatercraft: inputState.boatWatercraft,
             otherMachinery: inputState.otherMachinery,
-            otherAsset: inputState.otherAsset
+            otherAsset: inputState.otherAsset,
+
         };
         var result = handleValidation();
 

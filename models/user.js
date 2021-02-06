@@ -86,19 +86,19 @@ module.exports = function (sequelize, DataTypes) {
     // Associating User with Assets, Expenses, Income and Liabilities
     // When an User is deleted, also delete any associated Posts
     User.hasMany(models.Assets, {
-      onDelete: "cascade"
+      // onDelete: "cascade"
     });
 
     User.hasMany(models.Expenses, {
-      onDelete: "cascade"
+      // onDelete: "cascade"
     });
 
     User.hasMany(models.Income, {
-      onDelete: "cascade"
+      // onDelete: "cascade"
     });
 
     User.hasMany(models.Liabilities, {
-      onDelete: "cascade"
+      // onDelete: "cascade"
     });
 
 

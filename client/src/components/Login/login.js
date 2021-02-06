@@ -32,7 +32,7 @@ function Login() {
         try {
             const response = await loginUser(user);
             // Set token to localStorage
-            const token = response.data;
+            const token = response;
             // Set token to Auth header
             setAuthToken(token);
             // Decode token to get user data
@@ -40,7 +40,9 @@ function Login() {
             // Set current user
             appDispatch({ type: SET_CURRENT_USER, payload: decodedToken });
             history.push('/dashboard');
+            console.log("Log to see if redirect worked");
         } catch (error) {
+            console.log("Printing the Catch Error");
             appDispatch({
                 type: GET_ERRORS,
                 payload: error,

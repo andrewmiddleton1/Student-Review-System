@@ -26,6 +26,8 @@ const InputClientParticulars = (props) => {
         work_phone: '',
         errors: {},
 
+
+
         ...state.user
 
     });

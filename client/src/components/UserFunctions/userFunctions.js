@@ -184,3 +184,18 @@ export const inputClientIncome = userData => {
         })
 }
 
+export const getOneClientByEmail = emailForFunction => {
+    // console.log(userData);
+    return axios
+        .get('/api/users/' + emailForFunction, {
+        }).then(response => {
+            return response
+            console.log(response);
+        })
+        .catch(err => {
+            console.log(err);
+        })
+
+
+}
+

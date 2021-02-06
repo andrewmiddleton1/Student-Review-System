@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
@@ -16,8 +17,11 @@ process.env.SECRET_KEY = 'secret';
 // Otherwise the user will be sent an error
 router.post('/api/login', (req, res) => {
     db.User.findOne({
-        email: req.body.email,
-    })
+        where: {
+            email: req.body.email,
+        },
+    }
+    )
         .then((response) => {
             if (response) {
                 if (bcrypt.compareSync(req.body.password, response.password)) {
@@ -202,11 +206,27 @@ router.get('/logout', function (req, res) {
     res.redirect('/');
 });
 
-// Route for getting some data about our user to be used client side
+// Route for getting some data about our all users to be used client side
 router.get('/api/displayusers', function (req, res) {
     db.User.findAll({})
         .then((data) => res.json(data))
         .catch((err) => res.send(err));
 });
+
+// Route for getting some data about a particular user to be used client side
+router.get("/api/users/:email", function (req, res) {
+    // Here we add an "include" property to our options in our findOne query
+    // We set the value to an array of the models we want to include in a left outer join
+    // In this case, just db.Post
+    db.User.findOne({
+        where: {
+            email: req.params.email
+        },
+
+    }).then((data) => res.json(data))
+        .catch((err) => res.send(err));
+});
+
+
 
 module.exports = router;
