@@ -1,6 +1,7 @@
 import React from "react";
 import { getOneClientByEmail, inputClientAssets, getUsers } from "../UserFunctions/userFunctions";
 import { useAppContext } from '../../store';
+import { useEffect } from 'react';
 
 // props are the argument of the function
 const InputClientAssets = (props) => {
@@ -32,19 +33,26 @@ const InputClientAssets = (props) => {
 
     });
 
-    // let UserEmailId = [];
-    const emailForFunction = state.user.email;
 
-    getOneClientByEmail(emailForFunction)
-        .then((currentUserData) => {
-            console.log(currentUserData);
-            console.log(currentUserData.data.id);
-            // UserEmailId.push(currentUserData);
-            // console.log(UserEmailId[0]);
-            setInputState({
-                UserId: currentUserData.data.id
+    useEffect(() => {
+
+        const emailForFunction = state.user.email;
+
+        getOneClientByEmail(emailForFunction)
+            .then((currentUserData) => {
+                // console.log(currentUserData);
+                // console.log(currentUserData.data.id);
+                // UserEmailId.push(currentUserData);
+                // console.log(UserEmailId[0]);
+                setInputState({
+                    ...inputState,
+                    UserId: currentUserData.data.id
+                });
+
             });
-        });
+
+
+    });
 
 
 
