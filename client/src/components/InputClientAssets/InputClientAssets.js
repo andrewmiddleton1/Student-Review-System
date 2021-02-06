@@ -9,27 +9,6 @@ const InputClientAssets = (props) => {
     // with functional components you do it in the useState Hook, i called
     // this state 'inputState', you can have more than one state
 
-    let UserEmailId = [];
-    const emailForFunction = state.user.email;
-    console.log(emailForFunction);
-    console.log(UserEmailId);
-    console.log(UserEmailId[0]);
-
-
-
-
-    getOneClientByEmail(emailForFunction)
-        .then((currentUserData) => {
-            console.log(currentUserData);
-            console.log(currentUserData.data.id);
-            UserEmailId.push(currentUserData);
-        });
-
-
-    getUsers()
-        .then((data) => {
-            console.log(data);
-        });
 
     const [inputState, setInputState] = React.useState({
         principalResidence: "",
@@ -46,16 +25,29 @@ const InputClientAssets = (props) => {
         otherAsset: "",
         ...state.user,
 
-        UserID: UserEmailId,
+        UserID: "",
 
         errors: {}
 
 
     });
 
-    console.log(state.user);
-    console.log(state.user.first_name)
-    //what used to be a method in the class becomes a function:
+    // let UserEmailId = [];
+    const emailForFunction = state.user.email;
+
+    getOneClientByEmail(emailForFunction)
+        .then((currentUserData) => {
+            console.log(currentUserData);
+            console.log(currentUserData.data.id);
+            // UserEmailId.push(currentUserData);
+            // console.log(UserEmailId[0]);
+            setInputState({
+                UserId: currentUserData.data.id
+            });
+        });
+
+
+
 
     const handleValidation = () => {
         let errors = {};
