@@ -208,7 +208,7 @@ export const getOneClientByEmail = emailForFunction => {
 export const getOneClientByLastName = LastNameForFunction => {
     // console.log(userData);
     return axios
-        .get('/api/users/' + LastNameForFunction, {
+        .get('/api/users/name/' + LastNameForFunction, {
         }).then(response => {
             return response
             console.log(response);
@@ -221,10 +221,10 @@ export const getOneClientByLastName = LastNameForFunction => {
 
 }
 
-export const getClientAssetsData = UserId => {
+export const getClientAssetsData = UserIDforFunction => {
     // console.log(userData);
     return axios
-        .get('/api/assets/:id' + UserId, {
+        .get('/api/assets/' + UserIDforFunction, {
         }).then(assetsresponse => {
             return assetsresponse
             console.log(assetsresponse);

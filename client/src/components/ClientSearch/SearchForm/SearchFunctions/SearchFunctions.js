@@ -22,23 +22,6 @@ const Search = () => {
 
     });
 
-    useEffect(() => {
-        const LastNameForFunction = state.search;
-        getOneClientByLastName(LastNameForFunction)
-            .then((currentUserData) => {
-                // console.log(currentUserData);
-                // console.log(currentUserData.data.id);
-                // UserEmailId.push(currentUserData);
-                // console.log(UserEmailId[0]);
-                setInputState({
-                    ...inputState,
-                    UserId: currentUserData.data.id
-                });
-            });
-    }, []);
-
-
-
     const handleInputChange = (event) => {
         // to update the inputState you don't use this.setState anymore but setInputState
         setInputState({
@@ -51,19 +34,40 @@ const Search = () => {
     // 
     const handleFormSubmit = event => {
         event.preventDefault();
-        getClientAssetsData(inputState.UserId)
+        // console.log(inputState.UserId);
+        const UserIDforFunction = inputState.UserId;
+        console.log(UserIDforFunction);
+        getClientAssetsData(UserIDforFunction)
             .then(res => {
 
                 console.log(res);
 
-
-                if (res.data.status === "error") {
-                    throw new Error(res.data.message);
-                }
-                setInputState({ results: res.data.results, error: "" });
+                setInputState({
+                    ...inputState,
+                    results: res.data
+                });
+                console.log(inputState.results);
             })
             .catch(err => setInputState({ error: err.message }));
     };
+
+    useEffect(() => {
+        const LastNameForFunction = state.user.last_name;
+        console.log(LastNameForFunction);
+        getOneClientByLastName(LastNameForFunction)
+            .then((currentUserData) => {
+                console.log(currentUserData);
+                // console.log(currentUserData.data.id);
+                // UserEmailId.push(currentUserData);
+                // console.log(UserEmailId[0]);
+                setInputState({
+                    ...inputState,
+                    UserId: currentUserData.data.id
+                });
+            });
+    }, []);
+
+
 
     return (
         <div>

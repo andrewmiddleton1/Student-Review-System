@@ -233,7 +233,7 @@ router.get("/api/users/:email", function (req, res) {
 });
 
 // Route for getting data about a particular user based on last_name 
-router.get("/api/users/:last_name", function (req, res) {
+router.get("/api/users/name/:last_name", function (req, res) {
     db.User.findOne({
         where: {
             last_name: req.params.last_name
