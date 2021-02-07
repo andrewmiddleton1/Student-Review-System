@@ -1,7 +1,11 @@
 import React from "react";
-import { inputClientLiabilities } from '../UserFunctions/userFunctions';
+import { getOneClientByEmail, inputClientLiabilities } from '../UserFunctions/userFunctions';
+import { useAppContext } from '../../store';
+import { useEffect } from 'react';
 
 const InputClientLiabilities = (props) => {
+
+    const [state, dispatch] = useAppContext();
 
     const [inputState, setInputState] = React.useState({
         homeMortgage: '',
@@ -11,9 +15,27 @@ const InputClientLiabilities = (props) => {
         payDayLending: '',
         carLoan: '',
         otherLoans: '',
+        ...state.user,
+
+        UserId: "",
         errors: {},
 
     });
+
+    useEffect(() => {
+        const emailForFunction = state.user.email;
+        getOneClientByEmail(emailForFunction)
+            .then((currentUserData) => {
+                // console.log(currentUserData);
+                // console.log(currentUserData.data.id);
+                // UserEmailId.push(currentUserData);
+                // console.log(UserEmailId[0]);
+                setInputState({
+                    ...inputState,
+                    UserId: currentUserData.data.id
+                });
+            });
+    }, []);
 
     const handleValidation = () => {
         let errors = {};
@@ -114,6 +136,7 @@ const InputClientLiabilities = (props) => {
             payDayLending: inputState.payDayLending,
             carLoan: inputState.carLoan,
             otherLoans: inputState.otherLoans,
+            UserId: inputState.UserId
 
 
 
@@ -136,7 +159,7 @@ const InputClientLiabilities = (props) => {
             // }).filter(item => { return item; })[0];
             // if (!destination) {
             inputClientLiabilities(userData).then(res => {
-                props.history.push('/other')
+                props.history.push('/clientincome')
             })
             console.log("Liabilities Form submitted");
             // });

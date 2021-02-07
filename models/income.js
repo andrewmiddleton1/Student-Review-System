@@ -13,51 +13,51 @@ module.exports = function (sequelize, DataTypes) {
 
         primary_income: {
             type: DataTypes.INTEGER,
-            validate: {
-                isNumeric: true,
-            }
+            // validate: {
+            //     isNumeric: true,
+            // }
         },
 
         secondary_income: {
             type: DataTypes.INTEGER,
-            validate: {
-                isNumeric: true,
-            }
+            // validate: {
+            //     isNumeric: true,
+            // }
         },
 
         centrelink_payments: {
             type: DataTypes.INTEGER,
-            validate: {
-                isNumeric: true,
-            }
+            // validate: {
+            //     isNumeric: true,
+            // }
         },
 
         dva_payments: {
             type: DataTypes.INTEGER,
-            validate: {
-                isNumeric: true,
-            }
+            // validate: {
+            //     isNumeric: true,
+            // }
         },
 
         superannuation_payments: {
             type: DataTypes.INTEGER,
-            validate: {
-                isNumeric: true,
-            }
+            // validate: {
+            //     isNumeric: true,
+            // }
         },
 
         rental_income: {
             type: DataTypes.INTEGER,
-            validate: {
-                isNumeric: true,
-            }
+            // validate: {
+            //     isNumeric: true,
+            // }
         },
 
         other_income: {
             type: DataTypes.INTEGER,
-            validate: {
-                isNumeric: true,
-            }
+            // validate: {
+            //     isNumeric: true,
+            // }
         },
     });
 

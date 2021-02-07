@@ -22,14 +22,14 @@ function DashBoard() {
                 <div className="flex-row-reverse mr-5 d-flex">
                     {/* Nav Item - Dashboard */}
                     <Item active={''}
-                        href={"/clientassets"}
+                        href={"/clientparticulars"}
                         icon={<i className="fas fa-folder-minus" />}
                         text={<span>Client</span>} />
 
 
                     {/* Nav Item - Profile */}
                     <Item active={''}
-                        href={"/other"}
+                        href={"/plannerinfo"}
                         icon={<i className="fas fa-user-alt" />}
                         text={<span>Planner</span>} />
 

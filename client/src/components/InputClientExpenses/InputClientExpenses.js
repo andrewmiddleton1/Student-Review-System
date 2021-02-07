@@ -1,8 +1,12 @@
 import React from "react";
-import { inputClientExpenses } from '../UserFunctions/userFunctions';
+import { getOneClientByEmail, inputClientExpenses } from '../UserFunctions/userFunctions';
+import { useAppContext } from '../../store';
+import { useEffect } from 'react';
 
 
 const InputClientExpenses = (props) => {
+
+    const [state, dispatch] = useAppContext();
 
     const [inputState, setInputState] = React.useState({
         mortgage_repayments: '',
@@ -22,10 +26,26 @@ const InputClientExpenses = (props) => {
         insurance: '',
         child_maintenance: '',
         other_Expenses: '',
+        ...state.user,
+
+        UserId: "",
         errors: {}
     });
 
-
+    useEffect(() => {
+        const emailForFunction = state.user.email;
+        getOneClientByEmail(emailForFunction)
+            .then((currentUserData) => {
+                // console.log(currentUserData);
+                // console.log(currentUserData.data.id);
+                // UserEmailId.push(currentUserData);
+                // console.log(UserEmailId[0]);
+                setInputState({
+                    ...inputState,
+                    UserId: currentUserData.data.id
+                });
+            });
+    }, []);
 
 
 
@@ -228,6 +248,7 @@ const InputClientExpenses = (props) => {
             insurance: inputState.insurance,
             child_maintenance: inputState.child_maintenance,
             other_Expenses: inputState.other_Expenses,
+            UserId: inputState.UserId
 
 
         }

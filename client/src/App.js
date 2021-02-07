@@ -13,6 +13,7 @@ import ClientIncomePage from "./components/pages/ClientIncomePage/ClientIncomePa
 import ClientLiabilitiesPage from "./components/pages/ClientLiabilitiesPage/ClientLiabilitiesPage";
 import ClientParticularsPage from "./components/pages/ClientParticularsPage/ClientParticularsPage";
 import ClientExpensesPage from "./components/pages/ClientExpensesPage/ClientExpensesPage";
+import PlannerInfoPage from "./components/pages/PlannerInfoPage/PlannerInfoPage";
 
 
 import { AppContextProvider } from './store';
@@ -45,6 +46,7 @@ function App() {
                         <Route exact path="/clientincome" component={ClientIncomePage} />
                         <Route exact path="/clientparticulars" component={ClientParticularsPage} />
                         <Route exact path="/clientexpenses" component={ClientExpensesPage} />
+                        <Route exact path="/plannerinfo" component={PlannerInfoPage} />
 
                     </div>
                 </div>

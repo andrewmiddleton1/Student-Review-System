@@ -1,7 +1,11 @@
 import React from "react";
-import { inputClientIncome } from '../UserFunctions/userFunctions';
+import { getOneClientByEmail, inputClientIncome } from '../UserFunctions/userFunctions';
+import { useAppContext } from '../../store';
+import { useEffect } from 'react';
 
 const InputClientIncome = (props) => {
+
+    const [state, dispatch] = useAppContext();
 
     const [inputState, setInputState] = React.useState({
         employment_type: '',
@@ -13,10 +17,26 @@ const InputClientIncome = (props) => {
         superannuation_payments: '',
         rental_income: '',
         other_income: '',
+        ...state.user,
+
+        UserId: "",
         errors: {},
     });
 
-
+    useEffect(() => {
+        const emailForFunction = state.user.email;
+        getOneClientByEmail(emailForFunction)
+            .then((currentUserData) => {
+                // console.log(currentUserData);
+                // console.log(currentUserData.data.id);
+                // UserEmailId.push(currentUserData);
+                // console.log(UserEmailId[0]);
+                setInputState({
+                    ...inputState,
+                    UserId: currentUserData.data.id
+                });
+            });
+    }, []);
 
     const handleValidation = () => {
         let errors = {};
@@ -135,6 +155,7 @@ const InputClientIncome = (props) => {
             superannuation_payments: inputState.superannuation_payments,
             rental_income: inputState.rental_income,
             other_income: inputState.other_income,
+            UserId: inputState.UserId
 
         }
         var result = handleValidation();
@@ -152,7 +173,7 @@ const InputClientIncome = (props) => {
             // }).filter(item => { return item; })[0];
             // if (!destination) {
             inputClientIncome(userData).then(res => {
-                props.history.push('/other')
+                props.history.push('/clientexpenses')
             })
             console.log("Income Form submitted");
             // });

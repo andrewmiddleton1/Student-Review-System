@@ -1,14 +1,14 @@
 import React from "react";
-import { getOneClientByEmail, inputClientAssets, getUsers } from "../UserFunctions/userFunctions";
+import { getOneClientByEmail, inputClientAssets } from "../UserFunctions/userFunctions";
 import { useAppContext } from '../../store';
 import { useEffect } from 'react';
 
 // props are the argument of the function
 const InputClientAssets = (props) => {
+
     const [state, dispatch] = useAppContext();
-    // in a class component you would initialize the state in the constructor,
-    // with functional components you do it in the useState Hook, i called
-    // this state 'inputState', you can have more than one state
+
+
 
 
     const [inputState, setInputState] = React.useState({
@@ -26,18 +26,15 @@ const InputClientAssets = (props) => {
         otherAsset: "",
         ...state.user,
 
-        UserID: "",
+        UserId: "",
 
         errors: {}
-
 
     });
 
 
     useEffect(() => {
-
         const emailForFunction = state.user.email;
-
         getOneClientByEmail(emailForFunction)
             .then((currentUserData) => {
                 // console.log(currentUserData);
@@ -48,11 +45,8 @@ const InputClientAssets = (props) => {
                     ...inputState,
                     UserId: currentUserData.data.id
                 });
-
             });
-
-
-    });
+    }, []);
 
 
 
@@ -201,7 +195,7 @@ const InputClientAssets = (props) => {
             boatWatercraft: inputState.boatWatercraft,
             otherMachinery: inputState.otherMachinery,
             otherAsset: inputState.otherAsset,
-            // UserId: currentUserData,
+            UserId: inputState.UserId
 
 
         };
@@ -222,7 +216,7 @@ const InputClientAssets = (props) => {
             // }).filter(item => { return item; })[0];
             // if (!destination) {
             inputClientAssets(userData).then((res) => {
-                props.history.push("/other");
+                props.history.push("/clientliabilities");
             });
             console.log("Form submitted");
             // });

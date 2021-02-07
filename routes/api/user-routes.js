@@ -23,6 +23,7 @@ router.post('/api/login', (req, res) => {
     }
     )
         .then((response) => {
+            console.log();
             if (response) {
                 if (bcrypt.compareSync(req.body.password, response.password)) {
                     const payload = {
@@ -37,7 +38,7 @@ router.post('/api/login', (req, res) => {
                     });
                     res.send(token);
                 } else {
-                    res.status(400).json({ error: 'User does not exist' });
+                    res.status(400).json({ error: 'Password is not correct' });
                 }
             } else {
                 res.status(400).json({ error: 'User does not exist' });
@@ -82,6 +83,7 @@ router.post('/api/assets', function (req, res) {
         boatWatercraft: req.body.boatWatercraft,
         otherMachinery: req.body.otherMachinery,
         otherAsset: req.body.otherAsset,
+        UserId: req.body.UserId
     })
         .then(function () {
             res.json({ success: true });
@@ -101,6 +103,7 @@ router.post('/api/liabilities', function (req, res) {
         payDayLending: req.body.payDayLending,
         carLoan: req.body.carLoan,
         otherLoans: req.body.otherLoans,
+        UserId: req.body.UserId
     })
         .then(function () {
             res.json({ success: true });
@@ -130,6 +133,7 @@ router.post('/api/expenses', function (req, res) {
         insurance: req.body.insurance,
         child_maintenance: req.body.child_maintenance,
         other_Expenses: req.body.other_Expenses,
+        UserId: req.body.UserId
     })
         .then(function () {
             res.json({ success: true });
@@ -162,6 +166,7 @@ router.put('/api/particulars/:email', function (req, res) {
             mobile: req.body.mobile,
             home_phone: req.body.home_phone,
             work_phone: req.body.work_phone,
+
         },
 
         {
@@ -191,6 +196,7 @@ router.post('/api/income', function (req, res) {
         superannuation_payments: req.body.superannuation_payments,
         rental_income: req.body.rental_income,
         other_income: req.body.other_income,
+        UserId: req.body.UserId
     })
         .then(function () {
             res.json({ success: true });
@@ -214,7 +220,7 @@ router.get('/api/displayusers', function (req, res) {
         });
 });
 
-// Route for getting some data about a particular user to be used client side
+// Route for getting data about a particular user based on email 
 router.get("/api/users/:email", function (req, res) {
     db.User.findOne({
         where: {
@@ -226,5 +232,76 @@ router.get("/api/users/:email", function (req, res) {
     });
 });
 
+// Route for getting data about a particular user based on last_name 
+router.get("/api/users/:last_name", function (req, res) {
+    db.User.findOne({
+        where: {
+            last_name: req.params.last_name
+        },
+
+    }).then(function (dbUser) {
+        res.json(dbUser);
+    });
+});
+
+// Get route for retrieving assets for a given User
+router.get("/api/assets/:id", function (req, res) {
+
+    db.Assets.findOne({
+        where: {
+            UserId: req.params.id
+        },
+        include: [db.User]
+    }).then(function (dbAssets) {
+        res.json(dbAssets);
+    }).catch(function (error) {
+        res.json(error);
+    });
+});
+
+// Get route for retrieving liabilities for a given User
+router.get("/api/liabilities/:id", function (req, res) {
+
+    db.Liabilities.findOne({
+        where: {
+            UserId: req.params.id
+        },
+        include: [db.User]
+    }).then(function (dbLiabilities) {
+        res.json(dbLiabilities);
+    }).catch(function (error) {
+        res.json(error);
+    });
+});
+
+// Get route for retrieving income for a given User
+router.get("/api/income/:id", function (req, res) {
+
+    db.Income.findOne({
+        where: {
+            UserId: req.params.id
+        },
+        include: [db.User]
+    }).then(function (dbIncome) {
+        res.json(dbIncome);
+    }).catch(function (error) {
+        res.json(error);
+    });
+});
+
+// Get route for retrieving expenses for a given User
+router.get("/api/expenses/:id", function (req, res) {
+
+    db.Expenses.findOne({
+        where: {
+            UserId: req.params.id
+        },
+        include: [db.User]
+    }).then(function (dbExpenses) {
+        res.json(dbExpenses);
+    }).catch(function (error) {
+        res.json(error);
+    });
+});
 
 module.exports = router;

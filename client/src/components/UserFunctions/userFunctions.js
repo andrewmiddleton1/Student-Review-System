@@ -68,6 +68,7 @@ export const inputClientAssets = userData => {
             boatWatercraft: userData.boatWatercraft,
             otherMachinery: userData.otherMachinery,
             otherAsset: userData.otherAsset,
+            UserId: userData.UserId
 
         })
         .then(res => {
@@ -89,6 +90,7 @@ export const inputClientLiabilities = userData => {
             payDayLending: userData.payDayLending,
             carLoan: userData.carLoan,
             otherLoans: userData.otherLoans,
+            UserId: userData.UserId
 
         })
         .then(res => {
@@ -120,6 +122,7 @@ export const inputClientExpenses = userData => {
             insurance: userData.insurance,
             child_maintenance: userData.child_maintenance,
             other_Expenses: userData.other_Expenses,
+            UserId: userData.UserId
 
 
 
@@ -154,6 +157,7 @@ export const inputClientParticulars = userData => {
             home_phone: userData.home_phone,
             work_phone: userData.work_phone,
 
+
         })
         .then(res => {
             return res;
@@ -175,6 +179,7 @@ export const inputClientIncome = userData => {
             superannuation_payments: userData.superannuation_payments,
             rental_income: userData.rental_income,
             other_income: userData.other_income,
+            UserId: userData.UserId
 
 
         })
@@ -188,6 +193,81 @@ export const getOneClientByEmail = emailForFunction => {
     // console.log(userData);
     return axios
         .get('/api/users/' + emailForFunction, {
+        }).then(response => {
+            return response
+            console.log(response);
+
+        })
+        .catch(err => {
+            console.log(err);
+        })
+
+
+}
+
+export const getOneClientByLastName = LastNameForFunction => {
+    // console.log(userData);
+    return axios
+        .get('/api/users/' + LastNameForFunction, {
+        }).then(response => {
+            return response
+            console.log(response);
+
+        })
+        .catch(err => {
+            console.log(err);
+        })
+
+
+}
+
+export const getClientAssetsData = UserId => {
+    // console.log(userData);
+    return axios
+        .get('/api/assets/:id' + UserId, {
+        }).then(assetsresponse => {
+            return assetsresponse
+            console.log(assetsresponse);
+
+        })
+        .catch(err => {
+            console.log(err);
+        })
+
+}
+export const getClientLiabilitiesData = UserId => {
+    // console.log(userData);
+    return axios
+        .get('/api/liabilities/:id' + UserId, {
+        }).then(response => {
+            return response
+            console.log(response);
+
+        })
+        .catch(err => {
+            console.log(err);
+        })
+}
+
+export const getClientIncomeData = UserId => {
+    // console.log(userData);
+    return axios
+        .get('/api/income/:id' + UserId, {
+        }).then(response => {
+            return response
+            console.log(response);
+
+        })
+        .catch(err => {
+            console.log(err);
+        })
+
+}
+
+export const getClientExpensesData = UserId => {
+    // console.log(userData);
+    return axios
+        .get('/api/expenses/:id' + UserId, {
         }).then(response => {
             return response
             console.log(response);
