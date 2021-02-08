@@ -24,15 +24,12 @@ router.post('/api/login', (req, res) => {
     )
         .then((response) => {
             console.log();
+            console.log(response);
             if (response) {
                 if (bcrypt.compareSync(req.body.password, response.password)) {
-                    const payload = {
-                        _id: response._id,
-                        first_name: response.first_name,
-                        last_name: response.last_name,
-                        email: response.email,
-                    };
-                    let token = jwt.sign(payload, process.env.SECRET_KEY, {
+                    const { password, ...userData } = response.get({ plain: true })
+                    console.log(userData);
+                    let token = jwt.sign(userData, process.env.SECRET_KEY, {
                         // 1 year in seconds
                         expiresIn: 31556926,
                     });
@@ -59,6 +56,7 @@ router.post('/api/register', function (req, res) {
         password: req.body.password,
         first_name: req.body.first_name,
         last_name: req.body.last_name,
+        role: "user"
     })
         .then(function () {
             res.json({ success: true });
@@ -253,7 +251,7 @@ router.get("/api/assets/:id", function (req, res) {
         },
         include: [db.User]
     }).then(function (dbAssets) {
-        res.json(dbAssets);
+        res.json([dbAssets]);
     }).catch(function (error) {
         res.json(error);
     });

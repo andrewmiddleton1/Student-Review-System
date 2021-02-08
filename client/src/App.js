@@ -14,6 +14,7 @@ import ClientLiabilitiesPage from "./components/pages/ClientLiabilitiesPage/Clie
 import ClientParticularsPage from "./components/pages/ClientParticularsPage/ClientParticularsPage";
 import ClientExpensesPage from "./components/pages/ClientExpensesPage/ClientExpensesPage";
 import PlannerInfoPage from "./components/pages/PlannerInfoPage/PlannerInfoPage";
+import Auth from "./Auth";
 
 
 import { AppContextProvider } from './store';
@@ -56,3 +57,5 @@ function App() {
 
 }
 export default App;
+
+{/* <Route exact path="/plannerinfo" component={Auth(PlannerInfoPage, ["planner"])} /> */ }

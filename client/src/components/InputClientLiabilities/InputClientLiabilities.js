@@ -277,7 +277,7 @@ const InputClientLiabilities = (props) => {
                         </div>
 
                         <button type='submit' className='btn btn-lg btn-primary btn-block'>
-                            Register
+                            Save Liabilities
                             </button>
                     </form>
                 </div>

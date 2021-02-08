@@ -45,18 +45,18 @@ const InputClientIncome = (props) => {
 
         // employment_type
         if (inputState.employment_type !== "undefined") {
-            if (!inputState.employment_type.match(/^[0-9]*$/)) {
+            if (!inputState.employment_type.match(/^[a-zA-Z]+$/)) {
                 formIsValid = false;
-                errors["employment_type"] = "Only numbers";
+                errors["employment_type"] = "Only letters";
             }
         }
         else { }
 
         // industry
         if (inputState.industry !== "undefined") {
-            if (!inputState.industry.match(/^[0-9]*$/)) {
+            if (!inputState.industry.match(/^[a-zA-Z]+$/)) {
                 formIsValid = false;
-                errors["industry"] = "Only numbers";
+                errors["industry"] = "Only letters";
             }
         }
         else { }
@@ -317,7 +317,7 @@ const InputClientIncome = (props) => {
 
 
                         <button type='submit' className='btn btn-lg btn-primary btn-block'>
-                            Register
+                            Save Income
                             </button>
                     </form>
                 </div>

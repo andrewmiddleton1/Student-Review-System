@@ -1,0 +1,23 @@
+ul.search-results img {
+  margin: 0 auto;
+}
+
+.tableStyle {
+  width: 100%;
+  padding: 16px;
+  margin: 16px;
+  border: 2px solid black;
+  background-color: #ccc;
+  text-align: center;
+}
+
+.dashboardCard {
+  width: 60%;
+  min-height: 400px;
+}
+
+.bottomLink {
+  position: absolute; 
+  bottom: 5px; 
+}
+

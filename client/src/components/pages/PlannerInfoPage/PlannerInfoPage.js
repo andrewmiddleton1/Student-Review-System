@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import "./style.css"
 import Button from "../../Button/Button";
-import DashboardNewsCard from "../../DashboardNewsCard/DashboardNewsCard";
+// import DashboardNewsCard from "../../DashboardNewsCard/DashboardNewsCard";
 import Sidebar from "../../Sidebar/Sidebar";
-import Search from "../../ClientSearch/SearchForm/SearchFunctions/SearchFunctions";
+import AssetsSearch from "../../ClientSearch/SearchFunctions/AssetsSearch";
+
+
 
 class PlannerInfoPage extends Component {
     render() {
@@ -13,8 +15,8 @@ class PlannerInfoPage extends Component {
                 <div className="content">
                     <Button text={"Show Assets and Liabilities"} />
                     <Button text={"Print Record of Advice"} />
-                    <Search />
-                    <DashboardNewsCard />
+                    <AssetsSearch />
+                    {/* <DashboardNewsCard /> */}
                 </div>
             </div>
         );

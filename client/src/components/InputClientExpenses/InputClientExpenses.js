@@ -516,7 +516,7 @@ const InputClientExpenses = (props) => {
                         </div>
 
                         <button type='submit' className='btn btn-lg btn-primary btn-block'>
-                            Register
+                            Save Expenses
                             </button>
                     </form>
                 </div>

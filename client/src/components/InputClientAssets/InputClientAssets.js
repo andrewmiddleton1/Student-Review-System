@@ -216,6 +216,7 @@ const InputClientAssets = (props) => {
             // }).filter(item => { return item; })[0];
             // if (!destination) {
             inputClientAssets(userData).then((res) => {
+
                 props.history.push("/clientliabilities");
             });
             console.log("Form submitted");
@@ -433,7 +434,7 @@ const InputClientAssets = (props) => {
                         </div>
 
                         <button type="submit" className="btn btn-lg btn-primary btn-block">
-                            Register
+                            Save Assets
             </button>
                     </form>
                 </div>

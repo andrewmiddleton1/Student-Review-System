@@ -6,13 +6,23 @@ module.exports = function (sequelize, DataTypes) {
 
   var User = sequelize.define("User", {
     // 
+    role: {
+      type: DataTypes.STRING,
+      defaultValue: "user",
+      allowNull: false
+
+    },
+
     email: {
       type: DataTypes.STRING,
+      allowNull: false,
+      unique: true
 
     },
     // 
     password: {
       type: DataTypes.STRING,
+      allowNull: false
 
     },
     first_name: {

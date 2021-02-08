@@ -51,16 +51,16 @@ const InputClientParticulars = (props) => {
         }
         else { }
 
-        // password
-        if (!inputState.password) {
-            formIsValid = false;
-            errors["password"] = "Cannot be empty";
-        }
-        else if (inputState.password.length < 6) {
-            formIsValid = false;
-            errors["password"] = "Password must be at least 6 characters";
-        }
-        else { }
+        // // password
+        // if (!inputState.password) {
+        //     formIsValid = false;
+        //     errors["password"] = "Cannot be empty";
+        // }
+        // else if (inputState.password.length < 6) {
+        //     formIsValid = false;
+        //     errors["password"] = "Password must be at least 6 characters";
+        // }
+        // else { }
 
         // firstName
         if (!inputState.first_name) {
@@ -354,7 +354,7 @@ const InputClientParticulars = (props) => {
                             />
                             <span style={{ color: "red" }}>{inputState.errors["email"]}</span>
                         </div>
-                        <div className='form-group'>
+                        {/* <div className='form-group'>
                             <label htmlFor='password'>Password</label>
                             <input type='password'
                                 refs='password'
@@ -365,7 +365,7 @@ const InputClientParticulars = (props) => {
                                 onChange={onChange}
                             />
                             <span style={{ color: "red" }}>{inputState.errors["password"]}</span>
-                        </div>
+                        </div> */}
                         <div className='form-group'>
                             <label htmlFor='salutation'>salutation</label>
                             <input type='salutation'
@@ -535,7 +535,7 @@ const InputClientParticulars = (props) => {
                             <span style={{ color: "red" }}>{inputState.errors["work_phone"]}</span>
                         </div>
                         <button type='submit' className='btn btn-lg btn-primary btn-block'>
-                            Register
+                            Save Particulars
                             </button>
                     </form>
                 </div>

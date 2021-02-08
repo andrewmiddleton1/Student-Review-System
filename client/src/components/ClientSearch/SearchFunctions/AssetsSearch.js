@@ -1,14 +1,14 @@
 /* eslint-disable no-unreachable */
 import React from "react";
-import Container from "../../../../components/Container/index";
-import SearchForm from "../../SearchForm/SearchForm";
-import SearchResults from "../SearchResults/SearchResults";
-import Alert from "../../../../components/Alert/index";
-import { useAppContext } from '../../../../store';
-import { getClientAssetsData, getOneClientByLastName } from "../../../UserFunctions/userFunctions";
+import Container from "../../Container/index";
+import SearchForm from "../SearchForm/SearchForm";
+import AssetsSearchResults from "../SearchResults/AssetsSearchResults";
+import Alert from "../../Alert/index";
+import { useAppContext } from '../../../store';
+import { getClientAssetsData, getOneClientByLastName } from "../../UserFunctions/userFunctions";
 import { useEffect } from 'react';
 
-const Search = () => {
+const AssetsSearch = () => {
 
     const [state, dispatch] = useAppContext();
 
@@ -52,7 +52,7 @@ const Search = () => {
     };
 
     useEffect(() => {
-        const LastNameForFunction = state.user.last_name;
+        const LastNameForFunction = state.search;
         console.log(LastNameForFunction);
         getOneClientByLastName(LastNameForFunction)
             .then((currentUserData) => {
@@ -84,11 +84,11 @@ const Search = () => {
                     handleInputChange={handleInputChange}
                     clients={inputState.clients}
                 />
-                <SearchResults results={inputState.results} />
+                <AssetsSearchResults results={inputState.results} />
             </Container>
         </div>
     );
 
 }
 
-export default Search;
+export default AssetsSearch;

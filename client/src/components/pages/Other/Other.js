@@ -8,7 +8,16 @@ function Roster() {
         <div className="container-fluid h-100 p-0 m-0">
             <Sidebar />
             <div className="content">
-                <DashboardNewsCard />
+                <div className="dashboardCard card cardBackground">
+                    <div className="card-body">
+                        <h4 className="card-subtitle">Thank you for entering all of your details</h4>
+                        <p className="card-text">Please remember to log out so your details are saved and can't be accessed by others</p>
+                        <a href="/" className="card-link bottomLink">
+                            More details
+                </a>
+                    </div>
+                </div>
+
             </div>
         </div>
     );
