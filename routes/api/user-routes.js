@@ -147,7 +147,6 @@ router.put('/api/particulars/:email', function (req, res) {
     db.User.update(
         {
             email: req.body.email,
-            password: req.body.password,
             first_name: req.body.first_name,
             last_name: req.body.last_name,
             salutation: req.body.salutation,
@@ -266,7 +265,7 @@ router.get("/api/liabilities/:id", function (req, res) {
         },
         include: [db.User]
     }).then(function (dbLiabilities) {
-        res.json(dbLiabilities);
+        res.json([dbLiabilities]);
     }).catch(function (error) {
         res.json(error);
     });
@@ -281,7 +280,7 @@ router.get("/api/income/:id", function (req, res) {
         },
         include: [db.User]
     }).then(function (dbIncome) {
-        res.json(dbIncome);
+        res.json([dbIncome]);
     }).catch(function (error) {
         res.json(error);
     });
@@ -296,7 +295,7 @@ router.get("/api/expenses/:id", function (req, res) {
         },
         include: [db.User]
     }).then(function (dbExpenses) {
-        res.json(dbExpenses);
+        res.json([dbExpenses]);
     }).catch(function (error) {
         res.json(error);
     });

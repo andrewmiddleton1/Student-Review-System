@@ -1,6 +1,8 @@
 import React from "react";
 import { inputClientParticulars } from '../UserFunctions/userFunctions';
 import { useAppContext } from '../../store';
+import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
+import { useState } from "react";
 
 const InputClientParticulars = (props) => {
     const [state, dispatch] = useAppContext();
@@ -25,9 +27,6 @@ const InputClientParticulars = (props) => {
         home_phone: '',
         work_phone: '',
         errors: {},
-
-
-
         ...state.user
 
     });
@@ -51,16 +50,6 @@ const InputClientParticulars = (props) => {
         }
         else { }
 
-        // // password
-        // if (!inputState.password) {
-        //     formIsValid = false;
-        //     errors["password"] = "Cannot be empty";
-        // }
-        // else if (inputState.password.length < 6) {
-        //     formIsValid = false;
-        //     errors["password"] = "Password must be at least 6 characters";
-        // }
-        // else { }
 
         // firstName
         if (!inputState.first_name) {
@@ -263,7 +252,6 @@ const InputClientParticulars = (props) => {
             first_name: inputState.first_name,
             last_name: inputState.last_name,
             email: inputState.email,
-            password: inputState.password,
             salutation: inputState.salutation,
             preferredName: inputState.preferredName,
             date_of_birth: inputState.date_of_birth,
@@ -310,7 +298,8 @@ const InputClientParticulars = (props) => {
     //     console.log("Form has errors.")
     // }
 
-
+    // const [value, setValue] = useState(null);
+    // console.log(inputState.address);
 
     return (
         <div className='container'>
@@ -354,18 +343,7 @@ const InputClientParticulars = (props) => {
                             />
                             <span style={{ color: "red" }}>{inputState.errors["email"]}</span>
                         </div>
-                        {/* <div className='form-group'>
-                            <label htmlFor='password'>Password</label>
-                            <input type='password'
-                                refs='password'
-                                className='form-control'
-                                name='password'
-                                placeholder='Enter Password'
-                                value={inputState.password}
-                                onChange={onChange}
-                            />
-                            <span style={{ color: "red" }}>{inputState.errors["password"]}</span>
-                        </div> */}
+
                         <div className='form-group'>
                             <label htmlFor='salutation'>salutation</label>
                             <input type='salutation'
@@ -488,6 +466,18 @@ const InputClientParticulars = (props) => {
                         </div>
                         <div className='form-group'>
                             <label htmlFor='address'>Address</label>
+
+                            {/* <div>
+                                <GooglePlacesAutocomplete
+                                    apiKey="AIzaSyCcYu91ogagqmx5C1WmjPtxmfmW13QiDlo&callback=initAutocomplete&libraries=places&v=weekly"
+                                    selectProps={{
+                                        value={inputState.address},
+                                        onChange: setValue,
+                                    }}
+                                />
+
+                           </div> */}
+
                             <input type='address'
                                 refs='address'
                                 className='form-control'

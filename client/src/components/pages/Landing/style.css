@@ -1,5 +1,5 @@
 .backgroundImg {
-    background-image: url(../../assets/images/landingpagebackgroundimg.jpg);
+    background-image: url(../../assets/images/landingpagebackgroundfppro.jpg);
     background-size:     cover;                  
     background-repeat:   no-repeat;
     background-position: center center;
@@ -27,7 +27,7 @@
     font-size: 3vw;
 }
 
-.fa-stack {
+/* .fa-stack {
     vertical-align: top;
     color: grey
 }
@@ -50,4 +50,4 @@
 
 .googleLogo:hover {
     color: #dc5246 !important;
-}
+} */

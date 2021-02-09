@@ -139,7 +139,6 @@ export const inputClientParticulars = userData => {
         .put('/api/particulars/' + userData.email, {
 
             email: userData.email,
-            password: userData.password,
             first_name: userData.first_name,
             last_name: userData.last_name,
             salutation: userData.salutation,
@@ -235,10 +234,10 @@ export const getClientAssetsData = UserIDforFunction => {
         })
 
 }
-export const getClientLiabilitiesData = UserId => {
+export const getClientLiabilitiesData = UserIDforFunction => {
     // console.log(userData);
     return axios
-        .get('/api/liabilities/:id' + UserId, {
+        .get('/api/liabilities/' + UserIDforFunction, {
         }).then(response => {
             return response
             console.log(response);
@@ -249,10 +248,10 @@ export const getClientLiabilitiesData = UserId => {
         })
 }
 
-export const getClientIncomeData = UserId => {
+export const getClientIncomeData = UserIDforFunction => {
     // console.log(userData);
     return axios
-        .get('/api/income/:id' + UserId, {
+        .get('/api/income/' + UserIDforFunction, {
         }).then(response => {
             return response
             console.log(response);
@@ -264,10 +263,10 @@ export const getClientIncomeData = UserId => {
 
 }
 
-export const getClientExpensesData = UserId => {
+export const getClientExpensesData = UserIDforFunction => {
     // console.log(userData);
     return axios
-        .get('/api/expenses/:id' + UserId, {
+        .get('/api/expenses/' + UserIDforFunction, {
         }).then(response => {
             return response
             console.log(response);

@@ -2,6 +2,7 @@ import React from "react";
 import { getOneClientByEmail, inputClientIncome } from '../UserFunctions/userFunctions';
 import { useAppContext } from '../../store';
 import { useEffect } from 'react';
+import { SimpleFileUpload } from "react-simple-file-upload";
 
 const InputClientIncome = (props) => {
 
@@ -192,6 +193,9 @@ const InputClientIncome = (props) => {
     // }
     //     }
 
+    function handleFile(url) {
+        console.log('The URL of the file is ' + url)
+    }
 
     return (
         <div className='container'>
@@ -237,6 +241,15 @@ const InputClientIncome = (props) => {
                             />
                             <span style={{ color: "red" }}>{inputState.errors["primary_income"]}</span>
                         </div>
+
+                        {/* <div className='form-group'>
+                            <label htmlFor='primary_income'>Upload Payslip</label>
+
+                            <SimpleFileUpload
+                                apiKey="d3ca14eb-57ca-4fe3-95fc-e4569c8661de"
+                                onSuccess={handleFile}
+                            />
+                        </div> */}
 
                         <div className='form-group'>
                             <label htmlFor='secondary_income'>Secondary Income</label>

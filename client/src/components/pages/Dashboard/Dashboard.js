@@ -17,24 +17,32 @@ function DashBoard() {
             <Sidebar />
             <div>
                 <h1>
-                    Welcome {state.user.first_name} {state.user.last_name}
+                    Welcome: {state.user.first_name} {state.user.last_name}
                 </h1>
-                <div className="flex-row-reverse mr-5 d-flex">
+                <div className="flex-container">
                     {/* Nav Item - Dashboard */}
-                    <Item active={''}
+
+
+
+                    <Item active={''} className="flex-item"
                         href={"/clientparticulars"}
-                        icon={<i className="fas fa-folder-minus" />}
+                        icon={<i className="fas fa-user-alt" />}
                         text={<span>Client</span>} />
 
 
+
+
+
                     {/* Nav Item - Profile */}
-                    <Item active={''}
+                    <Item active={''} className="flex-item"
                         href={"/plannerinfo"}
-                        icon={<i className="fas fa-user-alt" />}
+                        icon={<i className="fas fa-folder-minus" />}
                         text={<span>Planner</span>} />
 
 
                 </div>
+
+
             </div>
         </div>
     );

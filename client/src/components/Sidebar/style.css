@@ -10,3 +10,7 @@ aside
 .sidebar {
     background-color: darkblue;
 }
+
+.item {
+    float: left;
+}
