@@ -15,9 +15,9 @@
   },
   "production": {
     "use_env_variable": "JAWSDB_URL",
-    "username": "root",
-    "password": "Gundaroo484",
-    "database": "fp_pro",
+    "username": "u8qg8ahjs7085gs9",
+    "password": "nyxztqj3noksdksg",
+    "database": "t8ox4tyeg4z5ps5w",
     "host": "127.0.0.1",
     "dialect": "mysql"
   }

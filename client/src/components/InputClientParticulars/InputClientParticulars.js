@@ -298,8 +298,9 @@ const InputClientParticulars = (props) => {
     //     console.log("Form has errors.")
     // }
 
-    // const [value, setValue] = useState(null);
-    // console.log(inputState.address);
+    const [googlevalue, setValue] = useState(null);
+    console.log('google val', googlevalue)
+    console.log(inputState.address);
 
     return (
         <div className='container'>
@@ -464,19 +465,20 @@ const InputClientParticulars = (props) => {
                             />
                             <span style={{ color: "red" }}>{inputState.errors["age_pension_age"]}</span>
                         </div>
+
                         <div className='form-group'>
                             <label htmlFor='address'>Address</label>
 
-                            {/* <div>
+                            <div>
                                 <GooglePlacesAutocomplete
                                     apiKey="AIzaSyCcYu91ogagqmx5C1WmjPtxmfmW13QiDlo&callback=initAutocomplete&libraries=places&v=weekly"
                                     selectProps={{
-                                        value={inputState.address},
+                                        googlevalue,
                                         onChange: setValue,
                                     }}
                                 />
+                            </div>
 
-                           </div> */}
 
                             <input type='address'
                                 refs='address'
@@ -488,6 +490,7 @@ const InputClientParticulars = (props) => {
                             />
                             <span style={{ color: "red" }}>{inputState.errors["address"]}</span>
                         </div>
+
                         <div className='form-group'>
                             <label htmlFor='mobile'>Mobile Phone Number</label>
                             <input type='mobile'
@@ -530,7 +533,7 @@ const InputClientParticulars = (props) => {
                     </form>
                 </div>
             </div>
-        </div>
+        </div >
     );
 
 

@@ -2,7 +2,7 @@ import React from "react";
 import { getOneClientByEmail, inputClientIncome } from '../UserFunctions/userFunctions';
 import { useAppContext } from '../../store';
 import { useEffect } from 'react';
-import { SimpleFileUpload } from "react-simple-file-upload";
+import SimpleFileUpload from 'react-simple-file-upload';
 
 const InputClientIncome = (props) => {
 
@@ -242,14 +242,14 @@ const InputClientIncome = (props) => {
                             <span style={{ color: "red" }}>{inputState.errors["primary_income"]}</span>
                         </div>
 
-                        {/* <div className='form-group'>
+                        <div className='form-group'>
                             <label htmlFor='primary_income'>Upload Payslip</label>
 
                             <SimpleFileUpload
-                                apiKey="d3ca14eb-57ca-4fe3-95fc-e4569c8661de"
+                                apiKey="c7985f2ddd5c58327200e53688b6b877"
                                 onSuccess={handleFile}
                             />
-                        </div> */}
+                        </div>
 
                         <div className='form-group'>
                             <label htmlFor='secondary_income'>Secondary Income</label>
