@@ -17,7 +17,6 @@ const AssetsSearch = () => {
         client: [],
         results: [],
         error: "",
-        ...state.user,
         UserId: ""
 
     });
@@ -26,15 +25,32 @@ const AssetsSearch = () => {
         // to update the inputState you don't use this.setState anymore but setInputState
         setInputState({
             ...inputState, // you always have to copy the old state like this
-            [event.target.name]: event.target.value // and set the property that changed like this
+            search: event.target.value // and set the property that changed like this
         });
+
+
     };
 
+    useEffect(() => {
+        const LastNameForFunction = inputState.search;
+        console.log(LastNameForFunction);
+        getOneClientByLastName(LastNameForFunction)
+            .then((currentUserData) => {
+                console.log(currentUserData);
+                // console.log(currentUserData.data.id);
+                // UserEmailId.push(currentUserData);
+                // console.log(UserEmailId[0]);
+                setInputState({
+                    ...inputState,
+                    UserId: currentUserData.data.id
+                });
+            });
+    }, []);
 
     // 
     const handleFormSubmit = event => {
         event.preventDefault();
-        // console.log(inputState.UserId);
+
         const UserIDforFunction = inputState.UserId;
         console.log(UserIDforFunction);
         getClientAssetsData(UserIDforFunction)
@@ -51,21 +67,6 @@ const AssetsSearch = () => {
             .catch(err => setInputState({ error: err.message }));
     };
 
-    useEffect(() => {
-        const LastNameForFunction = state.search;
-        console.log(LastNameForFunction);
-        getOneClientByLastName(LastNameForFunction)
-            .then((currentUserData) => {
-                console.log(currentUserData);
-                // console.log(currentUserData.data.id);
-                // UserEmailId.push(currentUserData);
-                // console.log(UserEmailId[0]);
-                setInputState({
-                    ...inputState,
-                    UserId: currentUserData.data.id
-                });
-            });
-    }, []);
 
 
 
