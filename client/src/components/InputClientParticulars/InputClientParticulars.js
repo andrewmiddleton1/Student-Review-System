@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { inputClientParticulars } from '../UserFunctions/userFunctions';
 import { useAppContext } from '../../store';
 import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
-import { useState } from "react";
+
+
 
 const InputClientParticulars = (props) => {
+
     const [state, dispatch] = useAppContext();
+
+    const [googlevalue, setValue] = useState({ value: { description: "" } });
+    // appDispatch({ type: SET_USER_ADDRESS, payload: googlevalue });
+    console.log('google val', googlevalue)
+
 
     const [inputState, setInputState] = React.useState({
         email: '',
@@ -22,7 +29,7 @@ const InputClientParticulars = (props) => {
         country_of_origin: '',
         preservation_age: '',
         age_pension_age: '',
-        address: '',
+        address: googlevalue,
         mobile: '',
         home_phone: '',
         work_phone: '',
@@ -31,6 +38,18 @@ const InputClientParticulars = (props) => {
 
     });
 
+    console.log(inputState);
+    console.log(inputState.address);
+
+    useEffect(() => {
+
+        setInputState({
+
+            ...inputState,
+            address: googlevalue.value.description,
+
+        });
+    }, [googlevalue.value.description]);
 
 
     const handleValidation = () => {
@@ -186,15 +205,15 @@ const InputClientParticulars = (props) => {
         else { }
 
         // address
-        if (!inputState.address) {
-            formIsValid = false;
-            errors["address"] = "Cannot be empty";
-        }
-        // else if (!inputState.address.match(/^[a-zA-Z]+$/)) {
+        // if (!inputState.address) {
         //     formIsValid = false;
-        //     errors["address"] = "Only letters";
+        //     errors["address"] = "Cannot be empty";
         // }
-        else { }
+        // // else if (!inputState.address.match(/^[a-zA-Z]+$/)) {
+        // //     formIsValid = false;
+        // //     errors["address"] = "Only letters";
+        // // }
+        // else { }
 
         // mobile
         if (!inputState.mobile) {
@@ -298,9 +317,9 @@ const InputClientParticulars = (props) => {
     //     console.log("Form has errors.")
     // }
 
-    const [googlevalue, setValue] = useState(null);
-    console.log('google val', googlevalue)
-    console.log(inputState.address);
+
+
+
 
     return (
         <div className='container'>
@@ -480,7 +499,7 @@ const InputClientParticulars = (props) => {
                             </div>
 
 
-                            <input type='address'
+                            {/* <input type='address'
                                 refs='address'
                                 className='form-control'
                                 name='address'
@@ -488,7 +507,7 @@ const InputClientParticulars = (props) => {
                                 value={inputState.address}
                                 onChange={onChange}
                             />
-                            <span style={{ color: "red" }}>{inputState.errors["address"]}</span>
+                            <span style={{ color: "red" }}>{inputState.errors["address"]}</span> */}
                         </div>
 
                         <div className='form-group'>

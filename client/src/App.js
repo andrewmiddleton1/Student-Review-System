@@ -14,6 +14,7 @@ import ClientLiabilitiesPage from "./components/pages/ClientLiabilitiesPage/Clie
 import ClientParticularsPage from "./components/pages/ClientParticularsPage/ClientParticularsPage";
 import ClientExpensesPage from "./components/pages/ClientExpensesPage/ClientExpensesPage";
 import PlannerInfoPage from "./components/pages/PlannerInfoPage/PlannerInfoPage";
+import CreateROAPage from "./components/pages/CreateROAPage/CreateROAPage";
 import Auth from "./Auth";
 
 
@@ -48,6 +49,7 @@ function App() {
                         <Route exact path="/clientparticulars" component={ClientParticularsPage} />
                         <Route exact path="/clientexpenses" component={ClientExpensesPage} />
                         <Route exact path="/plannerinfo" component={PlannerInfoPage} />
+                        <Route exact path="/createroa" component={CreateROAPage} />
 
                     </div>
                 </div>

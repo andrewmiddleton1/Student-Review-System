@@ -279,3 +279,18 @@ export const getClientExpensesData = UserIDforFunction => {
 
 }
 
+export const getClientParticulars = UserIDforFunction => {
+    // console.log(userData);
+    return axios
+        .get('/api/particulars/' + UserIDforFunction, {
+        }).then(response => {
+            return response
+            console.log(response);
+
+        })
+        .catch(err => {
+            console.log(err);
+        })
+
+
+}

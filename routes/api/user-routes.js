@@ -301,4 +301,19 @@ router.get("/api/expenses/:id", function (req, res) {
     });
 });
 
+// Get route for retrieving particulars for a given User
+router.get("/api/particulars/:id", function (req, res) {
+
+    db.User.findOne({
+        where: {
+            UserId: req.params.id
+        },
+        // include: [db.User]
+    }).then(function (dbParticulars) {
+        res.json([dbParticulars]);
+    }).catch(function (error) {
+        res.json(error);
+    });
+});
+
 module.exports = router;
