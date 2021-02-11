@@ -33,7 +33,7 @@ const CreateROA = () => {
     };
 
     // 
-    const handleFormSubmit = event => {
+    const handleFormSubmit = (event) => {
         event.preventDefault();
 
 
@@ -57,53 +57,53 @@ const CreateROA = () => {
                     })
                     .catch(err => setInputState({ error: err.message }));
 
-                getClientParticulars(currentUserData.data.id)
-                    .then(res => {
-                        console.log(res);
+                // getClientParticulars(currentUserData.data.id)
+                //     .then(res => {
+                //         console.log(res);
 
-                        setInputState({
-                            ...inputState,
-                            particulars: res.data
-                        });
-                        console.log(inputState.particulars);
-                    })
-                    .catch(err => setInputState({ error: err.message }));
+                //         setInputState({
+                //             ...inputState,
+                //             particulars: res.data
+                //         });
+                //         console.log(inputState.particulars);
+                //     })
+                //     .catch(err => setInputState({ error: err.message }));
 
-                getClientIncomeData(currentUserData.data.id)
-                    .then(res => {
-                        console.log(res);
+                // getClientIncomeData(currentUserData.data.id)
+                //     .then(res => {
+                //         console.log(res);
 
-                        setInputState({
-                            ...inputState,
-                            income: res.data
-                        });
-                        console.log(inputState.income);
-                    })
-                    .catch(err => setInputState({ error: err.message }));
+                //         setInputState({
+                //             ...inputState,
+                //             income: res.data
+                //         });
+                //         console.log(inputState.income);
+                //     })
+                //     .catch(err => setInputState({ error: err.message }));
 
-                getClientExpensesData(currentUserData.data.id)
-                    .then(res => {
-                        console.log(res);
+                // getClientExpensesData(currentUserData.data.id)
+                //     .then(res => {
+                //         console.log(res);
 
-                        setInputState({
-                            ...inputState,
-                            expenses: res.data
-                        });
-                        console.log(inputState.expenses);
-                    })
-                    .catch(err => setInputState({ error: err.message }));
+                //         setInputState({
+                //             ...inputState,
+                //             expenses: res.data
+                //         });
+                //         console.log(inputState.expenses);
+                //     })
+                //     .catch(err => setInputState({ error: err.message }));
 
-                getClientLiabilitiesData(currentUserData.data.id)
-                    .then(res => {
-                        console.log(res);
+                // getClientLiabilitiesData(currentUserData.data.id)
+                //     .then(res => {
+                //         console.log(res);
 
-                        setInputState({
-                            ...inputState,
-                            liabilities: res.data
-                        });
-                        console.log(inputState.liabilities);
-                    })
-                    .catch(err => setInputState({ error: err.message }));
+                //         setInputState({
+                //             ...inputState,
+                //             liabilities: res.data
+                //         });
+                //         console.log(inputState.liabilities);
+                //     })
+                //     .catch(err => setInputState({ error: err.message }));
             });
     };
 
@@ -116,12 +116,14 @@ const CreateROA = () => {
                     handleFormSubmit={handleFormSubmit}
                     handleInputChange={handleInputChange}
                     clients={inputState.clients}
+
+
                 />
-                {/* <ROAResults assets={inputState.assets}
+                <ROAResults assets={inputState.assets}
                     liabilities={inputState.liabilities}
                     expenses={inputState.expenses}
                     income={inputState.income}
-                    particulars={inputState.particulars} /> */}
+                    particulars={inputState.particulars} />
             </Container>
         </div>
     );

@@ -5,9 +5,9 @@ import "./style.css";
 
 function Item(props) {
   return (
-    <button type="button" className={"btn btn-primary "} color={"blue"}>
+    <button type="button" className={"btn btn-primary "}>
       <Link to={props.href}><span className="nav-link">
-        {props.icon}
+        {props.icon} {props.color}
         {props.text}</span></Link>
     </button>
 
