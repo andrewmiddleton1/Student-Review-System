@@ -8,7 +8,7 @@ function loadFile(url, callback) {
     PizZipUtils.getBinaryContent(url, callback);
 }
 
-export const App = class App extends React.Component {
+export class DocXButton extends React.Component {
     render() {
         const generateDocument = () => {
             loadFile("https://docxtemplater.com/tag-example.docx", function (

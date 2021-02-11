@@ -6,7 +6,8 @@ import Sidebar from "../../Sidebar/Sidebar";
 
 
 import CreateROA from "../../CreateROA/CreateROA";
-import Docxtemplater from "docxtemplater";
+
+import { DocXButton } from "../../DocXTemplater/DocXTemplater";
 
 
 
@@ -22,7 +23,7 @@ class CreateROAPage extends Component {
                         {<i className="fas fa-folder-minus" />}</h1>
                     <CreateROA />
                     <br></br>
-                    {/* <Docxtemplater /> */}
+                    <DocXButton />
                 </div>
             </div>
         );

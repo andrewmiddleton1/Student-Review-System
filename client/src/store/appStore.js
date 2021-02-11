@@ -35,7 +35,7 @@ export function appReducer(state, action) {
                 loading: true,
             };
         case GET_ERRORS:
-            return action.payload;
+            return { ...state, errors: action.payload };
         default:
             return state;
     }

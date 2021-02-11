@@ -22,6 +22,7 @@ export const useLoginCheck = (dispatch) => {
         if (token) {
             const decodedToken = jwt_decode
                 (token);
+            console.log('token', decodedToken)
             dispatch({ type: SET_CURRENT_USER, payload: decodedToken });
         }
     }, [dispatch]);

@@ -38,7 +38,7 @@ function Login() {
             // Decode token to get user data
             const decodedToken = jwt_decode(token);
             // Set current user
-            appDispatch({ type: SET_CURRENT_USER, payload: decodedToken });
+            await appDispatch({ type: SET_CURRENT_USER, payload: decodedToken });
             history.push('/dashboard');
             console.log("Log to see if redirect worked");
         } catch (error) {

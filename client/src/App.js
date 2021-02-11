@@ -48,7 +48,8 @@ function App() {
                         <Route exact path="/clientincome" component={ClientIncomePage} />
                         <Route exact path="/clientparticulars" component={ClientParticularsPage} />
                         <Route exact path="/clientexpenses" component={ClientExpensesPage} />
-                        <Route exact path="/plannerinfo" component={PlannerInfoPage} />
+                        {/* <Route exact path="/plannerinfo" component={PlannerInfoPage} /> */}
+                        <Route exact path="/plannerinfo" component={Auth(PlannerInfoPage, ["planner"])} />
                         <Route exact path="/createroa" component={CreateROAPage} />
 
                     </div>
@@ -60,4 +61,3 @@ function App() {
 }
 export default App;
 
-{/* <Route exact path="/plannerinfo" component={Auth(PlannerInfoPage, ["planner"])} /> */ }
