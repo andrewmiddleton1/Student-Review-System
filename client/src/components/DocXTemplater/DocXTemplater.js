@@ -45,6 +45,7 @@ export class DocXButton extends React.Component {
                         return value;
                     }
                     console.log(JSON.stringify({ error: error }, replaceErrors));
+                    console.log(content);
 
                     if (error.properties && error.properties.errors instanceof Array) {
                         const errorMessages = error.properties.errors
