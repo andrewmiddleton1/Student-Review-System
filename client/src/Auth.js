@@ -11,6 +11,7 @@ function Auth(ComposedComponent, roles = ["user", "planner"]) {
         useLoginCheck(appDispatch);
         console.log("user is", state.user.role);
         console.log("auth is", state.isAuthenticated);
+
         console.log('roles', roles)
         return state.isAuthenticated && roles.includes(state.user.role)
             ? <ComposedComponent {...props} state={state} dispatch={appDispatch} />
