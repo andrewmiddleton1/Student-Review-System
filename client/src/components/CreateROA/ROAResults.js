@@ -17,9 +17,9 @@ function ROAResults(props) {
         <div className="jumbotron mt-5 landingJumbo">
             <div className='col-sm-8 mx-auto jumboText'>
                 <h1 className='d-flex justify-content-center companyName'>
-                    <div>
+                    {/* <div>
                         <img src={tcaROA} alt="tcaROA" />
-                    </div>
+                    </div> */}
 
                 </h1>
                 <h2 className='text-center companySlogan'>Record of Advice (ROA) for:</h2>
