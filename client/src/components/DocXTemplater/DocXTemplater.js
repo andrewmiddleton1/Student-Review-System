@@ -18,6 +18,7 @@ export class DocXButton extends React.Component {
                 if (error) {
                     throw error;
                 }
+                console.log(content);
                 var zip = new PizZip(content);
                 var doc = new Docxtemplater().loadZip(zip);
                 doc.setData({
