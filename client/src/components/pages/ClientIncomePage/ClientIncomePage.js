@@ -11,7 +11,7 @@ class ClientIncomePage extends Component {
                 <Sidebar />
                 <div className="content">
                     <InputClientIncome history={this.props.history} />
-                    <DashboardNewsCard />
+
                 </div>
             </div>
         );

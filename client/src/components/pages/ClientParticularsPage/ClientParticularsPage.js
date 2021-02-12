@@ -11,7 +11,7 @@ class ClientParticularsPage extends Component {
                 <Sidebar />
                 <div className="content">
                     <InputClientParticulars history={this.props.history} />
-                    <DashboardNewsCard />
+
                 </div>
             </div>
         );

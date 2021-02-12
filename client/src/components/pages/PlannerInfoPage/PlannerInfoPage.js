@@ -5,6 +5,8 @@ import Button from "../../Button/Button";
 import Sidebar from "../../Sidebar/Sidebar";
 import AssetsSearch from "../../ClientSearch/SearchFunctions/AssetsSearch";
 import ExpensesSearch from "../../ClientSearch/SearchFunctions/ExpensesSearch";
+import LiabilitiesSearch from "../../ClientSearch/SearchFunctions/LiabilitiesSearch";
+import IncomeSearch from "../../ClientSearch/SearchFunctions/IncomeSearch";
 
 
 
@@ -23,6 +25,11 @@ class PlannerInfoPage extends Component {
                     <AssetsSearch />
                     <br></br>
                     <ExpensesSearch />
+                    <br></br>
+                    <LiabilitiesSearch />
+                    <br></br>
+                    <IncomeSearch />
+
                     {/* <DashboardNewsCard /> */}
                 </div>
             </div>

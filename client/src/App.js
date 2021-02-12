@@ -7,7 +7,7 @@ import Register from "./components/Register/Register";
 import Login from "./components/Login/Login";
 import Dashboard from "./components/pages/Dashboard/Dashboard";
 import Other from "./components/pages/Other/Other";
-import Profile from "./components/Profile/profile";
+import Profile from "./components/Profile/Profile";
 import ClientAssetsPage from "./components/pages/ClientAssetsPage/ClientAssetsPage";
 import ClientIncomePage from "./components/pages/ClientIncomePage/ClientIncomePage";
 import ClientLiabilitiesPage from "./components/pages/ClientLiabilitiesPage/ClientLiabilitiesPage";
