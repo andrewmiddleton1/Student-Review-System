@@ -12,7 +12,7 @@ function loadFile(url, callback) {
 export class DocXButton extends React.Component {
     render() {
         const generateDocument = () => {
-            loadFile("https://docxtemplater.com/tag-example.docx", function (
+            loadFile("https://static.files-simplefileupload.com/u5y2u65gn3z7il4dksmximy71odo/roatemplate.docx", function (
                 error,
                 content
             ) {
@@ -23,10 +23,10 @@ export class DocXButton extends React.Component {
                 var zip = new PizZip(content);
                 var doc = new Docxtemplater().loadZip(zip);
                 doc.setData({
-                    first_name: "John",
-                    last_name: "Doe",
+                    first_name: "Andrew",
+                    last_name: "Middleton",
                     phone: "0652455478",
-                    description: "New Website"
+                    // description: "New Website"
                 });
                 try {
                     // render the document (replace all occurences of {first_name} by John, {last_name} by Doe, ...)
