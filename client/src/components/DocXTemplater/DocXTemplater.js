@@ -3,6 +3,7 @@ import Docxtemplater from "docxtemplater";
 import PizZip from "pizzip";
 import PizZipUtils from "pizzip/utils/index.js";
 import { saveAs } from "file-saver";
+import "./input.docx";
 
 function loadFile(url, callback) {
     PizZipUtils.getBinaryContent(url, callback);
@@ -11,7 +12,7 @@ function loadFile(url, callback) {
 export class DocXButton extends React.Component {
     render() {
         const generateDocument = () => {
-            loadFile("https://docxtemplater.com/tag-example.docx", function (
+            loadFile("./input.docx", function (
                 error,
                 content
             ) {
