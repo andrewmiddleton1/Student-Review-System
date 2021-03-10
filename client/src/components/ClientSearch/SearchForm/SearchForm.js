@@ -7,12 +7,12 @@ function SearchForm(props) {
   return (
     <form className="search">
       <div className="form-group">
-        <label htmlFor="name">Type Client Name to Search:</label>
+        <label htmlFor="name">Type Trainee Name to Search:</label>
         <input
 
           type="text"
           className="form-control"
-          placeholder="Client Name"
+          placeholder="Trainee Name"
           id="name"
           onChange={props.handleInputChange}
         />

@@ -25,9 +25,9 @@ function DashBoard() {
 
 
                     <Item active={''} className="flex-item"
-                        href={"/clientparticulars"}
+                        href={"/feedbackinput"}
                         icon={<i className="fas fa-user-alt" />}
-                        text={<span>Client</span>} />
+                        text={<span>Consultant</span>} />
 
 
 
@@ -35,9 +35,9 @@ function DashBoard() {
 
                     {/* Nav Item - Profile */}
                     <Item active={''} className="flex-item"
-                        href={"/plannerinfo"}
+                        href={"/demtinfo"}
                         icon={<i className="fas fa-folder-minus" />}
-                        text={<span>Planner</span>} />
+                        text={<span>DEMT/Admin</span>} />
 
 
                 </div>

@@ -10,7 +10,7 @@ function Roster() {
             <div className="content">
                 <div className="dashboardCard card cardBackground">
                     <div className="card-body">
-                        <h4 className="card-subtitle">Thank you for entering all of your details</h4>
+                        <h4 className="card-subtitle">Thank you for entering your feedback notes</h4>
                         <p className="card-text">Please remember to log out so your details are saved and can't be accessed by others</p>
                         <a href="/" className="card-link bottomLink">
                             More details

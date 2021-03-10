@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
 
-function AssetsSearchResults(props) {
+function StudentSearchResults(props) {
 
   console.log(props);
   console.log(props.results);
@@ -11,8 +11,8 @@ function AssetsSearchResults(props) {
 
     <div className="dashboardCard card cardBackground">
       <div className="card-body">
-        <h4 className="card-subtitle">Assets</h4>
-        <p className="card-text">Snapshot</p>
+        <h4 className="card-subtitle">Trainee Profile</h4>
+
         <a href="/" className="card-link bottomLink">
           More details
                 </a>
@@ -20,22 +20,21 @@ function AssetsSearchResults(props) {
 
 
         <table className="table">
-          <thead >
+          {/* <thead >
             <tr>
-              <th scope="col" >Owner</th>
-              <th scope="col" >Asset </th>
-              <th scope="col" >Value </th>
+
+              <th scope="col" >Trainee </th>
+              <th scope="col" >Details </th>
 
 
             </tr>
-          </thead>
+          </thead> */}
           <tbody>
             {props.results.map(result => {
               return (
                 <tr key={result} >
-                  <td> {result.User.first_name} </td>
-                  <td> {"Principal Residence"} </td>
-                  <td> {result.principalResidence} </td>
+                  <td> {"First Name"} </td>
+                  <td> {result.first_name} </td>
                 </tr>
               )
             })
@@ -43,9 +42,8 @@ function AssetsSearchResults(props) {
             {props.results.map(result => {
               return (
                 <tr key={result} >
-                  <td> {result.User.first_name} </td>
-                  <td> {"Investment Property"} </td>
-                  <td> {result.investmentProperty} </td>
+                  <td> {"Last Name"} </td>
+                  <td> {result.last_name} </td>
                 </tr>
               )
             })
@@ -53,9 +51,9 @@ function AssetsSearchResults(props) {
             {props.results.map(result => {
               return (
                 <tr key={result} >
-                  <td> {result.User.first_name} </td>
-                  <td> {"Home Contents"} </td>
-                  <td> {result.homeContents} </td>
+
+                  <td> {"Phone"} </td>
+                  <td> {result.phone} </td>
                 </tr>
               )
             })
@@ -63,9 +61,9 @@ function AssetsSearchResults(props) {
             {props.results.map(result => {
               return (
                 <tr key={result} >
-                  <td> {result.User.first_name} </td>
-                  <td> {"Primary Car"} </td>
-                  <td> {result.primaryCar} </td>
+
+                  <td> {"Email"} </td>
+                  <td> {result.email_pers} </td>
                 </tr>
               )
             })
@@ -73,9 +71,9 @@ function AssetsSearchResults(props) {
             {props.results.map(result => {
               return (
                 <tr key={result} >
-                  <td> {result.User.first_name} </td>
-                  <td> {"Second Car"} </td>
-                  <td> {result.secondaryCar} </td>
+
+                  <td> {"ICU Term"} </td>
+                  <td> {result.ICU_term} </td>
                 </tr>
               )
             })
@@ -83,9 +81,9 @@ function AssetsSearchResults(props) {
             {props.results.map(result => {
               return (
                 <tr key={result} >
-                  <td> {result.User.first_name} </td>
-                  <td> {"Cash in Bank"} </td>
-                  <td> {result.cashInBank} </td>
+
+                  <td> {"Anesthetics Term"} </td>
+                  <td> {result.anesthetics_term} </td>
                 </tr>
               )
             })
@@ -93,9 +91,9 @@ function AssetsSearchResults(props) {
             {props.results.map(result => {
               return (
                 <tr key={result} >
-                  <td> {result.User.first_name} </td>
-                  <td> {"Managed Fund"} </td>
-                  <td> {result.managedFund} </td>
+
+                  <td> {"Pediatrics Term"} </td>
+                  <td> {result.pediatrics_term} </td>
                 </tr>
               )
             })
@@ -103,9 +101,9 @@ function AssetsSearchResults(props) {
             {props.results.map(result => {
               return (
                 <tr key={result} >
-                  <td> {result.User.first_name} </td>
-                  <td> {"Share Portfolio"} </td>
-                  <td> {result.sharePortfolio} </td>
+
+                  <td> {"Retrieval Term"} </td>
+                  <td> {result.retrieval_term} </td>
                 </tr>
               )
             })
@@ -113,9 +111,9 @@ function AssetsSearchResults(props) {
             {props.results.map(result => {
               return (
                 <tr key={result} >
-                  <td> {result.User.first_name} </td>
-                  <td> {"Caravan/Camper"} </td>
-                  <td> {result.caravanCamper} </td>
+
+                  <td> {"Training Phase"} </td>
+                  <td> {result.training_phase} </td>
                 </tr>
               )
             })
@@ -123,9 +121,9 @@ function AssetsSearchResults(props) {
             {props.results.map(result => {
               return (
                 <tr key={result} >
-                  <td> {result.User.first_name} </td>
-                  <td> {"Boat/Watercraft"} </td>
-                  <td> {result.boatWatercraft} </td>
+
+                  <td> {"Exam Phase"} </td>
+                  <td> {result.exam_stage} </td>
                 </tr>
               )
             })
@@ -133,9 +131,9 @@ function AssetsSearchResults(props) {
             {props.results.map(result => {
               return (
                 <tr key={result} >
-                  <td> {result.User.first_name} </td>
-                  <td> {"Other Machinery/Cars"} </td>
-                  <td> {result.otherMachinery} </td>
+
+                  <td> {"Associated DEMT"} </td>
+                  <td> {result.associated_DEMT} </td>
                 </tr>
               )
             })
@@ -143,24 +141,44 @@ function AssetsSearchResults(props) {
             {props.results.map(result => {
               return (
                 <tr key={result} >
-                  <td> {result.User.first_name} </td>
-                  <td> {"Other Asset"} </td>
-                  <td> {result.otherAsset} </td>
+
+                  <td> {"Improvement Area 1"} </td>
+                  <td> {result.improvement_area_1} </td>
+                </tr>
+              )
+            })
+            }
+            {props.results.map(result => {
+              return (
+                <tr key={result} >
+
+                  <td> {"Improvement Area 2"} </td>
+                  <td> {result.improvement_area_2} </td>
+                </tr>
+              )
+            })
+            }
+            {props.results.map(result => {
+              return (
+                <tr key={result} >
+
+                  <td> {"Improvement Area 3"} </td>
+                  <td> {result.improvement_area_3} </td>
                 </tr>
               )
             })
             }
 
           </tbody>
-          <tfoot>
+          {/* <tfoot>
             <tr>
               <td></td>
-              <td>Total</td>
+              <td>TBA</td>
               <td>TBA</td>
 
 
             </tr>
-          </tfoot>
+          </tfoot> */}
 
         </table>
 
@@ -170,5 +188,5 @@ function AssetsSearchResults(props) {
   );
 }
 
-export default AssetsSearchResults;
+export default StudentSearchResults;
 

@@ -2,12 +2,11 @@
 import React from "react";
 import Container from "../../Container/index";
 import SearchForm from "../SearchForm/SearchForm";
-import LiabilitiesSearchResults from "../SearchResults/LiabilitiesSearchResults";
-import Alert from "../../Alert/index";
+import StudentSearchResults from "../SearchResults/StudentSearchResults";
 import { useAppContext } from '../../../store';
-import { getClientLiabilitiesData, getOneClientByLastName } from "../../UserFunctions/userFunctions";
+import { getOneStudent } from "../../UserFunctions/userFunctions";
 
-const LiabilitiesSearch = () => {
+const StudentSearch = () => {
 
     const [state, dispatch] = useAppContext();
 
@@ -35,26 +34,19 @@ const LiabilitiesSearch = () => {
 
 
         const LastNameForFunction = inputState.search;
-        console.log(LastNameForFunction);
-        getOneClientByLastName(LastNameForFunction)
-            .then((currentUserData) => {
-                console.log(currentUserData);
-                console.log(currentUserData.data.id);
+        getOneStudent(LastNameForFunction)
+            .then(res => {
+                console.log(res);
+
+                setInputState({
+                    ...inputState,
+                    results: res.data
+                });
+                console.log(inputState.results);
+            })
+            .catch(err => setInputState({ error: err.message }));
 
 
-                getClientLiabilitiesData(currentUserData.data.id)
-                    .then(res => {
-                        console.log(res);
-
-                        setInputState({
-                            ...inputState,
-                            results: res.data
-                        });
-                        console.log(inputState.results);
-                    })
-                    .catch(err => setInputState({ error: err.message }));
-
-            });
     };
 
 
@@ -67,11 +59,11 @@ const LiabilitiesSearch = () => {
                     handleInputChange={handleInputChange}
                     clients={inputState.clients}
                 />
-                <LiabilitiesSearchResults results={inputState.results} />
+                <StudentSearchResults results={inputState.results} />
             </Container>
         </div>
     );
 
 }
 
-export default LiabilitiesSearch;
+export default StudentSearch;

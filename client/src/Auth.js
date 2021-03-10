@@ -15,7 +15,7 @@ function Auth(ComposedComponent, roles = ["user", "planner"]) {
         console.log('roles', roles)
         return state.isAuthenticated && roles.includes(state.user.role)
             ? <ComposedComponent {...props} state={state} dispatch={appDispatch} />
-            : <h1>You are not authorised to enter the Planner Portal</h1>;
+            : <h1>You are not authorised to enter the DEMT Portal</h1>;
     };
 }
 

@@ -2,11 +2,12 @@
 import React from "react";
 import Container from "../../Container/index";
 import SearchForm from "../SearchForm/SearchForm";
-import ExpensesSearchResults from "../SearchResults/ExpensesSearchResults";
+import FeedbackSearchResults from "../SearchResults/FeedbackSearchResults";
+import Alert from "../../Alert/index";
 import { useAppContext } from '../../../store';
-import { getClientExpensesData, getOneClientByLastName } from "../../UserFunctions/userFunctions";
+import { getOneStudentFeedback, getOneStudentByLastName } from "../../UserFunctions/userFunctions";
 
-const ExpensesSearch = () => {
+const FeedbackSearch = () => {
 
     const [state, dispatch] = useAppContext();
 
@@ -35,13 +36,16 @@ const ExpensesSearch = () => {
 
         const LastNameForFunction = inputState.search;
         console.log(LastNameForFunction);
-        getOneClientByLastName(LastNameForFunction)
+        getOneStudentByLastName(LastNameForFunction)
             .then((currentUserData) => {
                 console.log(currentUserData);
-                console.log(currentUserData.data.id);
+                console.log(currentUserData.data[0].id);
 
 
-                getClientExpensesData(currentUserData.data.id)
+
+
+
+                getOneStudentFeedback(currentUserData.data[0].id)
                     .then(res => {
                         console.log(res);
 
@@ -60,23 +64,17 @@ const ExpensesSearch = () => {
     return (
         <div>
             <Container style={{ minHeight: "80%" }}>
-                {/* <h1 className="text-center">Welcome to the Planner Tools!</h1>
-                <Alert
-                    type="danger"
-                    style={{ opacity: inputState.error ? 1 : 0, marginBottom: 10 }}
-                >
-                    {inputState.error}
-                </Alert> */}
+
                 <SearchForm
                     handleFormSubmit={handleFormSubmit}
                     handleInputChange={handleInputChange}
                     clients={inputState.clients}
                 />
-                <ExpensesSearchResults results={inputState.results} />
+                <FeedbackSearchResults results={inputState.results} />
             </Container>
         </div>
     );
 
 }
 
-export default ExpensesSearch;
+export default FeedbackSearch;

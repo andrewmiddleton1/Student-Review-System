@@ -22,7 +22,7 @@ function ROAResults(props) {
                     </div> */}
 
                 </h1>
-                <h2 className='text-center companySlogan'>Record of Advice (ROA) for:</h2>
+                <h2 className='text-center companySlogan'>Consultant Feedback for:</h2>
 
                 {props.assets.map(result => {
                     return (

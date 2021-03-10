@@ -18,7 +18,7 @@ class CreateROAPage extends Component {
                 <Sidebar />
                 <div className="content">
 
-                    <h1 className="text-center">Create a Record of Advice (and other documents!)
+                    <h1 className="text-center">Create a Word Doc Summary of Feedback (and other documents!)
                     <br></br>
                         {<i className="fas fa-folder-minus" />}</h1>
                     <CreateROA />

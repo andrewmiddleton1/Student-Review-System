@@ -12,6 +12,7 @@ function Login() {
     const [formState, setFormState] = useState({
         email: '',
         password: '',
+        errors: {},
     });
 
     const [, appDispatch] = useAppContext();
@@ -24,6 +25,7 @@ function Login() {
     };
 
     const handleSubmit = async (e) => {
+        let errors = {};
         e.preventDefault();
         const user = {
             email: formState.email,
@@ -43,9 +45,14 @@ function Login() {
             console.log("Log to see if redirect worked");
         } catch (error) {
             console.log("Printing the Catch Error");
+            errors["password"] = "Wrong Username or Password";
             appDispatch({
                 type: GET_ERRORS,
                 payload: error,
+            });
+            setFormState({
+                ...formState,
+                errors: errors
             });
         }
     };
@@ -77,6 +84,7 @@ function Login() {
                                 value={formState.password}
                                 onChange={onChange}
                             />
+                            <span style={{ color: "red" }}>{formState.errors["password"]}</span>
                         </div>
                         <button type="submit" className="btn btn-lg btn-primary btn-block">
                             Sign in

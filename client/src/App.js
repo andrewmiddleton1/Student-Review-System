@@ -9,11 +9,11 @@ import Dashboard from "./components/pages/Dashboard/Dashboard";
 import Other from "./components/pages/Other/Other";
 import Profile from "./components/Profile/Profile";
 import ClientAssetsPage from "./components/pages/ClientAssetsPage/ClientAssetsPage";
-import ClientIncomePage from "./components/pages/ClientIncomePage/ClientIncomePage";
+import StudentInputPage from "./components/pages/StudentInputPage/StudentInputPage";
 import ClientLiabilitiesPage from "./components/pages/ClientLiabilitiesPage/ClientLiabilitiesPage";
-import ClientParticularsPage from "./components/pages/ClientParticularsPage/ClientParticularsPage";
+import FeedbackInputPage from "./components/pages/FeedbackInputPage/FeedbackInputPage";
 import ClientExpensesPage from "./components/pages/ClientExpensesPage/ClientExpensesPage";
-import PlannerInfoPage from "./components/pages/PlannerInfoPage/PlannerInfoPage";
+import DEMTInfoPage from "./components/pages/DEMTInfoPage/DEMTInfoPage";
 import CreateROAPage from "./components/pages/CreateROAPage/CreateROAPage";
 import Auth from "./Auth";
 
@@ -45,11 +45,11 @@ function App() {
                         <Route exact path="/startUp" component={StartUp} />
                         <Route exact path="/clientassets" component={ClientAssetsPage} />
                         <Route exact path="/clientliabilities" component={ClientLiabilitiesPage} />
-                        <Route exact path="/clientincome" component={ClientIncomePage} />
-                        <Route exact path="/clientparticulars" component={ClientParticularsPage} />
+                        <Route exact path="/studentinput" component={StudentInputPage} />
+                        <Route exact path="/feedbackinput" component={FeedbackInputPage} />
                         <Route exact path="/clientexpenses" component={ClientExpensesPage} />
                         {/* <Route exact path="/plannerinfo" component={PlannerInfoPage} /> */}
-                        <Route exact path="/plannerinfo" component={Auth(PlannerInfoPage, ["planner"])} />
+                        <Route exact path="/demtinfo" component={Auth(DEMTInfoPage, ["planner"])} />
                         <Route exact path="/createroa" component={CreateROAPage} />
 
                     </div>

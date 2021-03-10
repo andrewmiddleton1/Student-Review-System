@@ -2,15 +2,15 @@ import React, { Component } from "react";
 import Sidebar from "../../Sidebar/Sidebar"
 import DashboardNewsCard from "../../DashboardNewsCard/DashboardNewsCard"
 import "./style.css";
-import InputClientIncome from "../../InputClientIncome/InputClientIncome";
+import InputStudent from "../../InputStudent/InputStudent";
 
-class ClientIncomePage extends Component {
+class StudentInputPage extends Component {
     render() {
         return (
             <div className="container-fluid h-100 p-0 m-0">
                 <Sidebar />
                 <div className="content">
-                    <InputClientIncome history={this.props.history} />
+                    <InputStudent history={this.props.history} />
 
                 </div>
             </div>
@@ -18,4 +18,4 @@ class ClientIncomePage extends Component {
     }
 }
 
-export default ClientIncomePage;
+export default StudentInputPage;

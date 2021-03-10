@@ -12,7 +12,7 @@ function Sidebar() {
                                         <div className="sidebar-brand-icon rotate-n-15">
                                                 <i className="far fa-user-circle" />
                                         </div>
-                                        <div className="sidebar-brand-text mx-3">TCA</div>
+                                        <div className="sidebar-brand-text mx-3">HNE Health</div>
                                 </Link>
 
                                 {/* Divider */}
@@ -32,7 +32,7 @@ function Sidebar() {
                                 <Item active={''}
                                         href={"/profile"}
                                         icon={<i className="fas fa-user-alt" />}
-                                        text={<span>Profile</span>} />
+                                        text={<span>Trainee Profiles</span>} />
 
                                 {/* Divider */}
                                 <hr className="sidebar-divider d-none d-md-block" />

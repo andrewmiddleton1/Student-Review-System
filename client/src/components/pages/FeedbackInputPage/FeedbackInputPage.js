@@ -2,15 +2,15 @@ import React, { Component } from "react";
 import Sidebar from "../../Sidebar/Sidebar"
 import DashboardNewsCard from "../../DashboardNewsCard/DashboardNewsCard"
 import "./style.css";
-import InputClientParticulars from "../../InputClientParticulars/InputClientParticulars";
+import InputFeedback from "../../InputFeedback/InputFeedback";
 
-class ClientParticularsPage extends Component {
+class FeedbackInputPage extends Component {
     render() {
         return (
             <div className="container-fluid h-100 p-0 m-0">
                 <Sidebar />
                 <div className="content">
-                    <InputClientParticulars history={this.props.history} />
+                    <InputFeedback history={this.props.history} />
 
                 </div>
             </div>
@@ -18,4 +18,4 @@ class ClientParticularsPage extends Component {
     }
 }
 
-export default ClientParticularsPage;
+export default FeedbackInputPage;

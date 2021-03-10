@@ -7,7 +7,7 @@ function ROASearchForm(props) {
   return (
     <form className="search">
       <div className="form-group">
-        <label htmlFor="name">Type Client Name for ROA:</label>
+        <label htmlFor="name">Type Registrar Name to Generate Summary:</label>
         <input
 
           type="text"
@@ -18,7 +18,7 @@ function ROASearchForm(props) {
         />
 
         <button type="submit" onClick={props.handleFormSubmit} className="btn btn-success">
-          Create ROA
+          Feedback Summary
         </button>
       </div>
     </form>

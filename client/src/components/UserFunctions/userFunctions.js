@@ -38,7 +38,7 @@ export const loginUser = userData => {
 export const getUsers = () => {
     // debugger;
     return axios
-        .get('/api/displayusers', {
+        .get('/api/displayauthors', {
         })
         .then(response => {
             console.log(response);
@@ -50,6 +50,126 @@ export const getUsers = () => {
             console.log(err);
         })
 }
+
+export const getStudents = () => {
+    // debugger;
+    return axios
+        .get('/api/students', {
+        })
+        .then(response => {
+            console.log(response);
+
+            // console.log(userData);  
+            return response
+        })
+        .catch(err => {
+            console.log(err);
+        })
+}
+
+export const getOneStudent = (LastNameForFunction) => {
+    // debugger;
+    return axios
+        .get('/api/Students/' + LastNameForFunction, {
+        })
+        .then(response => {
+            console.log(response);
+
+            // console.log(userData);  
+            return response
+        })
+        .catch(err => {
+            console.log(err);
+        })
+}
+
+export const getOneClientByLastName = LastNameForFunction => {
+    // console.log(userData);
+    return axios
+        .get('/api/users/name/' + LastNameForFunction, {
+        }).then(response => {
+            return response
+            console.log(response);
+
+        })
+        .catch(err => {
+            console.log(err);
+        })
+
+
+}
+
+
+
+
+export const addStudent = (userData) => {
+    // debugger;
+    return axios
+        .post('/api/Students', {
+
+            first_name: userData.first_name,
+            last_name: userData.last_name,
+            phone: userData.phone,
+            email_pers: userData.email_pers,
+            email_work: userData.email_work,
+            training_phase: userData.training_phase,
+            exam_stage: userData.exam_stage,
+            pediatrics_term: userData.pediatrics_term,
+            ICU_term: userData.ICU_term,
+            anesthetics_term: userData.anesthetics_term,
+            retrieval_term: userData.retrieval_term,
+            associated_DEMT: userData.associated_DEMT,
+            improvement_area_1: userData.improvement_area_1,
+            improvement_area_2: userData.improvement_area_2,
+            improvement_area_3: userData.improvement_area_3,
+            photo_URL: userData.photo_URL,
+
+        })
+        .then(response => {
+            console.log(response);
+
+            // console.log(userData);  
+            return response
+        })
+        .catch(err => {
+            console.log(err);
+        })
+}
+
+export const addPost = (userData) => {
+    // debugger;
+    return axios
+        .post('/api/feedback', {
+
+            type: userData.type,
+            StudentId: userData.StudentId,
+            time_date: userData.time_date,
+            global_assessment: userData.global_assessment,
+            prioritisation_decision_making: userData.prioritisation_decision_making,
+            professionalism: userData.professionalism,
+            scholarship_teaching: userData.scholarship_teaching,
+            teamwork_collaboration: userData.teamwork_collaboration,
+            leadership_management: userData.leadership_management,
+            health_advocacy: userData.health_advocacy,
+            communication: userData.communication,
+            sick_calls: userData.sick_calls,
+            body: userData.body,
+            AuthorId: userData.AuthorId
+
+
+        })
+        .then(response => {
+            console.log(response);
+
+            // console.log(userData);  
+            return response
+        })
+        .catch(err => {
+            console.log(err);
+        })
+}
+
+
 
 export const inputClientAssets = userData => {
     // console.log(userData);
@@ -77,6 +197,35 @@ export const inputClientAssets = userData => {
         })
 
 }
+
+
+export const inputFeedback = userData => {
+    // console.log(userData);
+    return axios
+        .post('/api/feedback', {
+
+            type: userData.type,
+            StudentID: userData.StudentID,
+            time_date: userData.time_date,
+            global_assessment: userData.global_assessment,
+            area_for_improvement1: userData.area_for_improvement1,
+            area_for_improvement2: userData.area_for_improvement2,
+            area_for_improvement3: userData.area_for_improvement3,
+            area_for_improvement4: userData.area_for_improvement4,
+            area_for_improvement5: userData.area_for_improvement5,
+            area_for_improvement6: userData.area_for_improvement6,
+            area_for_improvement7: userData.area_for_improvement7,
+            sick_calls: userData.sick_calls,
+            body: userData.body,
+
+        })
+        .then(res => {
+            return res;
+            console.log('Feedback Updated!');
+        })
+
+}
+
 
 export const inputClientLiabilities = userData => {
     // console.log(userData);
@@ -204,10 +353,10 @@ export const getOneClientByEmail = emailForFunction => {
 
 }
 
-export const getOneClientByLastName = LastNameForFunction => {
+export const getOneStudentByLastName = LastNameForFunction => {
     // console.log(userData);
     return axios
-        .get('/api/users/name/' + LastNameForFunction, {
+        .get('/api/Students/' + LastNameForFunction, {
         }).then(response => {
             return response
             console.log(response);
@@ -234,6 +383,22 @@ export const getClientAssetsData = UserIDforFunction => {
         })
 
 }
+
+export const getOneStudentFeedback = UserIDforFunction => {
+    // console.log(userData);
+    return axios
+        .get('/api/posts/' + UserIDforFunction, {
+        }).then(assetsresponse => {
+            return assetsresponse
+            console.log(assetsresponse);
+
+        })
+        .catch(err => {
+            console.log(err);
+        })
+
+}
+
 export const getClientLiabilitiesData = UserIDforFunction => {
     // console.log(userData);
     return axios

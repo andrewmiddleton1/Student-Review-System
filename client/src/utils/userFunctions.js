@@ -28,5 +28,5 @@ export const loginUser = userData => {
 }
 
 export const getUsers = () => {
-    return axios.get('/api/displayusers').then((res) => res.data);
+    return axios.get('/api/displayauthors').then((res) => res.data);
 };

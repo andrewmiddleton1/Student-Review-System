@@ -217,7 +217,7 @@ const InputClientAssets = (props) => {
             // if (!destination) {
             inputClientAssets(userData).then((res) => {
 
-                props.history.push("/clientliabilities");
+                props.history.push("/other");
             });
             console.log("Form submitted");
             // });
@@ -240,10 +240,10 @@ const InputClientAssets = (props) => {
                 <div className="col-md-6 mt-5 mx-auto">
                     <form noValidate onSubmit={onSubmit}>
                         <h1 className="h3 mb-3 font-weight normal">
-                            Please Input your Assets
+                            Please Input your Feedback
             </h1>
                         <div className="form-group">
-                            <label htmlFor="first_name">Principal Residence Value</label>
+                            <label htmlFor="first_name">Student Name</label>
                             <input
                                 type="text"
                                 refs="principalResidence"
@@ -259,7 +259,7 @@ const InputClientAssets = (props) => {
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="investmentProperty">Investment Property</label>
+                            <label htmlFor="investmentProperty">Date/Shift</label>
                             <input
                                 type="text"
                                 refs="investmentProperty"
@@ -275,7 +275,7 @@ const InputClientAssets = (props) => {
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="homeContents">Home Contents Value</label>
+                            <label htmlFor="homeContents">Feedback</label>
                             <input
                                 type="text"
                                 refs="homeContents"
@@ -290,7 +290,7 @@ const InputClientAssets = (props) => {
                             </span>
                         </div>
 
-                        <div className="form-group">
+                        {/* <div className="form-group">
                             <label htmlFor="primaryCar">Primary Car Value</label>
                             <input
                                 type="text"
@@ -431,10 +431,10 @@ const InputClientAssets = (props) => {
                             <span style={{ color: "red" }}>
                                 {inputState.errors["otherAsset"]}
                             </span>
-                        </div>
+                        </div> */}
 
                         <button type="submit" className="btn btn-lg btn-primary btn-block">
-                            Save Assets
+                            Save Feedback
             </button>
                     </form>
                 </div>
