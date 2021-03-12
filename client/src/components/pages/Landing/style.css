@@ -1,12 +1,13 @@
-.backgroundImg {
+/* .backgroundImg {
     background-image: url(../../assets/images/hunternewenglandbackground.jpg);
     background-size:     cover;                  
     background-repeat:   no-repeat;
     background-position: center center;
-}
+} */
 
 .landingJumbo {
     width: 60%;
+    height: 60%;
     background-color: rgba(204, 204, 204, 0.6) !important;
 }
 

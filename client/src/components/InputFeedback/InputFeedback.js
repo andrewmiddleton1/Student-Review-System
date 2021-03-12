@@ -406,6 +406,26 @@ const InputFeedback = (props) => {
                         </div>
 
                         <div className='form-group'>
+                            <label htmlFor='body'>Feedback Comments (please provide examples, particularly if trainee is below or above average either globally or in any specific domain/s)</label>
+                            <input type='text'
+                                refs='body'
+                                className='form-control'
+                                name='body'
+                                placeholder='Feedback Comments'
+                                value={inputState.body}
+                                onChange={onChange}
+                            />
+                            <span style={{ color: "red" }}>{inputState.errors["body"]}</span>
+                        </div>
+                        <div>------------------------------------------------------------------------------</div>
+                        <div style={{ color: "black" }}>ACEM Domains
+                            </div>
+                        <div>
+                            <p1>(Optional: if you wish to provide feedback on specific domains)</p1>
+                        </div>
+                        <break></break>
+                        <div>----------------------------</div>
+                        <div className='form-group'>
                             <label htmlFor='prioritisation_decision_making'>Prioritisation and Decision Making</label>
 
                             <DropdownButton id="dropdown-basic-button"
@@ -425,6 +445,7 @@ const InputFeedback = (props) => {
                                 <Dropdown.Item eventKey="At Standard">At Standard</Dropdown.Item>
                                 <Dropdown.Item eventKey="Below Standard">Below Standard</Dropdown.Item>
                                 <Dropdown.Item eventKey="Above Standard">Above Standard</Dropdown.Item>
+                                <Dropdown.Item eventKey="Not Observed">Not Observed</Dropdown.Item>
 
                             </DropdownButton>
 
@@ -450,6 +471,7 @@ const InputFeedback = (props) => {
                                 <Dropdown.Item eventKey="At Standard">At Standard</Dropdown.Item>
                                 <Dropdown.Item eventKey="Below Standard">Below Standard</Dropdown.Item>
                                 <Dropdown.Item eventKey="Above Standard">Above Standard</Dropdown.Item>
+                                <Dropdown.Item eventKey="Not Observed">Not Observed</Dropdown.Item>
 
                             </DropdownButton>
                             <span style={{ color: "red" }}>{inputState.errors["professionalism"]}</span>
@@ -474,6 +496,7 @@ const InputFeedback = (props) => {
                                 <Dropdown.Item eventKey="At Standard">At Standard</Dropdown.Item>
                                 <Dropdown.Item eventKey="Below Standard">Below Standard</Dropdown.Item>
                                 <Dropdown.Item eventKey="Above Standard">Above Standard</Dropdown.Item>
+                                <Dropdown.Item eventKey="Not Observed">Not Observed</Dropdown.Item>
 
                             </DropdownButton>
                             <span style={{ color: "red" }}>{inputState.errors["scholarship_teaching"]}</span>
@@ -497,6 +520,7 @@ const InputFeedback = (props) => {
                                 <Dropdown.Item eventKey="At Standard">At Standard</Dropdown.Item>
                                 <Dropdown.Item eventKey="Below Standard">Below Standard</Dropdown.Item>
                                 <Dropdown.Item eventKey="Above Standard">Above Standard</Dropdown.Item>
+                                <Dropdown.Item eventKey="Not Observed">Not Observed</Dropdown.Item>
 
                             </DropdownButton>
                             <span style={{ color: "red" }}>{inputState.errors["teamwork_collaboration"]}</span>
@@ -520,6 +544,7 @@ const InputFeedback = (props) => {
                                 <Dropdown.Item eventKey="At Standard">At Standard</Dropdown.Item>
                                 <Dropdown.Item eventKey="Below Standard">Below Standard</Dropdown.Item>
                                 <Dropdown.Item eventKey="Above Standard">Above Standard</Dropdown.Item>
+                                <Dropdown.Item eventKey="Not Observed">Not Observed</Dropdown.Item>
 
                             </DropdownButton>
                             <span style={{ color: "red" }}>{inputState.errors["leadership_management"]}</span>
@@ -543,6 +568,7 @@ const InputFeedback = (props) => {
                                 <Dropdown.Item eventKey="At Standard">At Standard</Dropdown.Item>
                                 <Dropdown.Item eventKey="Below Standard">Below Standard</Dropdown.Item>
                                 <Dropdown.Item eventKey="Above Standard">Above Standard</Dropdown.Item>
+                                <Dropdown.Item eventKey="Not Observed">Not Observed</Dropdown.Item>
 
                             </DropdownButton>
                             <span style={{ color: "red" }}>{inputState.errors["health_advocacy"]}</span>
@@ -566,12 +592,13 @@ const InputFeedback = (props) => {
                                 <Dropdown.Item eventKey="At Standard">At Standard</Dropdown.Item>
                                 <Dropdown.Item eventKey="Below Standard">Below Standard</Dropdown.Item>
                                 <Dropdown.Item eventKey="Above Standard">Above Standard</Dropdown.Item>
+                                <Dropdown.Item eventKey="Not Observed">Not Observed</Dropdown.Item>
 
                             </DropdownButton>
                             <span style={{ color: "red" }}>{inputState.errors["communication"]}</span>
                         </div>
 
-                        <div className='form-group'>
+                        {/* <div className='form-group'>
                             <label htmlFor='sick_calls'>Sick Calls</label>
                             <DropdownButton id="sick_calls"
                                 style={{ width: "100%" }}
@@ -593,20 +620,9 @@ const InputFeedback = (props) => {
 
                             </DropdownButton>
                             <span style={{ color: "red" }}>{inputState.errors["sick_calls"]}</span>
-                        </div>
+                        </div> */}
 
-                        <div className='form-group'>
-                            <label htmlFor='body'>Feedback Comments (mandatory if any categories below average)</label>
-                            <input type='text'
-                                refs='body'
-                                className='form-control'
-                                name='body'
-                                placeholder='Feedback Comments'
-                                value={inputState.body}
-                                onChange={onChange}
-                            />
-                            <span style={{ color: "red" }}>{inputState.errors["body"]}</span>
-                        </div>
+
 
                         <button type='submit' className='btn btn-lg btn-primary btn-block'>
                             Save Feedback

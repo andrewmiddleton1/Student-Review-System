@@ -1,5 +1,6 @@
 import React from "react";
-import hunternewengland from "../assets/images/hunternewengland.jpg"
+// import hunternewengland from "../assets/images/hunternewengland.jpg";
+import nursehelpingpatient from "../assets/images/nurse-helping-patient-in-hospital-bed-clipart.jpg"
 
 
 const LandingJumbo = (props) => {
@@ -9,7 +10,7 @@ const LandingJumbo = (props) => {
             <div className='col-sm-8 mx-auto jumboText'>
                 <h1 className='d-flex justify-content-center companyName'>
                     <div>
-                        <img src={hunternewengland} alt="hunternewenglandlogo" />
+                        <img src={nursehelpingpatient} alt="nursehelpingpatient" />
                     </div>
 
                 </h1>
