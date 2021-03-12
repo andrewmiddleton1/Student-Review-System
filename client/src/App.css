@@ -114,10 +114,18 @@ h5 {
     .labelText {
         font-size: 20px;
     }
+
+    .sidebar {
+        display: none;
+    }
+    .aside {
+      display: none;
+  }
 }
 /* These rules take effect when the browser's width */
 /* is either 576px or more. */
-@media screen and (min-width: 576px) { */
+@media screen and (min-width: 576px) { 
+
     /* The body's bg color will be #fca203 */
     body {
       background-color: #fca203;
@@ -147,6 +155,12 @@ h5 {
     }
     #currentTime {
         margin-top: 0;
+    }
+    .sidebar {
+        display: none;
+    }
+    aside {
+      display: none;
     }
 }
 /* These rules take effect when the browser's width */
@@ -217,18 +231,3 @@ h5 {
         margin-top: 30px;
     }
 }
-
-/* Extra small (xs) devices (portrait phones, less than 576px) */
-/* No media query since this is the default in Bootstrap */
-
-/* Small (sm) devices (landscape phones, 576px and up) */
-/* @media (min-width: 576px) { ... } */
-
-/* Medium (md) devices (tablets, 768px and up) */
-/* @media (min-width: 768px) { ... } */
-
-/* Large (lg) devices (desktops, 992px and up) */
-/* @media (min-width: 992px) { ... } */
-
-/* Extra (xl) large devices (large desktops, 1200px and up) */
-/* @media (min-width: 1200px) { ... } */
