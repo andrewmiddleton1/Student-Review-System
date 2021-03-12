@@ -31,6 +31,11 @@ class Navbar extends Component {
                     </Link>
                 </li>
                 <li>
+                    <Link className='btn btn-sm active mr-1 mb-1' to='/profile'>
+                        Trainee Profiles
+                    </Link>
+                </li>
+                <li>
                     <Link className='btn btn-sm active mr-1 mb-1' to='/dashboard'>
                         Dashboard
                     </Link>
