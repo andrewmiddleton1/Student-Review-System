@@ -26,8 +26,12 @@ class DEMTInfoPage extends Component {
                         icon={<i className="fas fa-folder-minus" />}
                         text={<span>Add Student</span>} /> */}
 
-                    <Button text={"Add New Trainee"}
+                    <Button className='btn btn-sm active' text={"Add New Trainee"}
                         href={"/studentinput"} />
+
+                    <Button className='btn btn-sm active' text={"Register New Consultant"}
+                        href={"/register"} />
+
 
 
                     <StudentSearch />

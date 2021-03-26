@@ -16,11 +16,11 @@ class Navbar extends Component {
                         Login
                     </Link>
                 </li>
-                <li>
+                {/* <li>
                     <Link className='btn btn-sm active' to='/register'>
                         Register
                     </Link>
-                </li>
+                </li> */}
             </ul>
         )
         const userLink = (
