@@ -10,7 +10,7 @@ const BrandDescription = (props) => {
                 <div className="cardBackground card col-md-9 col-xs-12 justify-content-center p-0 m-0">
                     <div className="card-body">
                         <h5 className="card-title">Welcome!</h5>
-                        <p className="card-text">Please login if you have the required login credentials.</p>
+                        <p className="card-text">Please login if you have the required login credentials</p>
                     </div>
                 </div>
 
