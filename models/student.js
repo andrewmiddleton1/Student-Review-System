@@ -74,11 +74,27 @@ module.exports = function (sequelize, DataTypes) {
   Student.associate = function (models) {
     // Associating Author with Posts
     // When an Author is deleted, also delete any associated Posts
-    Student.belongsToMany(models.Author, {
-      through: models.Post,
+    // Student.hasMany(models.Post, {
+    //   onDelete: "cascade"
+    // });
+
+    // Student.belongsTo(models.Post, {
+    //   constraints: false,
+    //   onDelete: "cascade"
+    // });
+
+    // Student.hasMany(models.Post);
+
+    // Student.belongsToMany(models.Post, {
+
+    //   onDelete: "cascade"
+    // });
+
+    Student.belongsTo(models.Post, {
+      constraints: false,
+      // through: models.Post,
       onDelete: "cascade"
     });
-
   };
 
   return Student;

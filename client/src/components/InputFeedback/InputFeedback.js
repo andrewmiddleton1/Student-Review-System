@@ -346,7 +346,7 @@ const InputFeedback = (props) => {
 
                         {/* date-picker */}
                         <div className='form-group'>
-                            <label htmlFor='time_date'>Time/Date</label>
+                            <label htmlFor='time_date'>Date</label>
 
                             <div>
                                 <DatePicker
@@ -406,7 +406,7 @@ const InputFeedback = (props) => {
                         </div>
 
                         <div className='form-group'>
-                            <label htmlFor='body'>Feedback Comments (please provide examples, particularly if trainee is below or above average either globally or in any specific domain/s)</label>
+                            <label htmlFor='body'>Comments (please provide examples, particularly if trainee is below or above average either globally or in any specific domain/s)</label>
                             <input type='text'
                                 refs='body'
                                 className='form-control'

@@ -2,6 +2,12 @@
 module.exports = function (sequelize, DataTypes) {
   var Post = sequelize.define("Post", {
 
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+      allowNull: false
+    },
 
     type: {
       type: DataTypes.STRING,
@@ -58,11 +64,26 @@ module.exports = function (sequelize, DataTypes) {
   Post.associate = function (models) {
     // We're saying that a Post should belong to an Author
     // A Post can't be created without an Author due to the foreign key constraint
+
     Post.belongsTo(models.Author, {
-      foreignKey: {
-        allowNull: false
-      }
+      constraints: false,
+
     });
+    // Post.belongsTo(models.Author) , {
+    //   // foreignKey: {
+    //   //   allowNull: false
+    //   // }
+    // });
+    Post.belongsTo(models.Student, {
+      constraints: false,
+
+    });
+
+
+
+    // Post.hasOne(models.Student, {
+    //   onDelete: "cascade"
+    // });
   };
 
   return Post;

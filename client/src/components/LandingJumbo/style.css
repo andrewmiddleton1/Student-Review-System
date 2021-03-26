@@ -7,7 +7,7 @@
 
 .landingJumbo {
     width: 60%;
-    height: 40%;
+    height: 60%;
     background-color: rgba(204, 204, 204, 0.6) !important;
 }
 
@@ -15,7 +15,11 @@
     background-color: rgb(231, 248, 255)!important;
 }
 
-
+.responsive {
+    max-width: 100%;
+    height: auto;
+  }
+  
 .jumboText {
     color: black;
 }

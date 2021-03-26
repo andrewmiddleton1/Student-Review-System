@@ -48,30 +48,34 @@ const FeedbackSearch = () => {
                 getOneStudentFeedback(currentUserData.data[0].id)
                     .then(res => {
                         console.log(res);
+                        console.log(res.data);
+
 
                         setInputState({
                             ...inputState,
-                            results: res.data
+                            results: res.data[0]
                         });
                         console.log(inputState.results);
                     })
                     .catch(err => setInputState({ error: err.message }));
 
             });
+
+
     };
 
 
     return (
         <div>
-            <Container style={{ minHeight: "80%" }}>
+            {/* <Container style={{ minHeight: "80%", width: "100%" }}> */}
 
-                <SearchForm
-                    handleFormSubmit={handleFormSubmit}
-                    handleInputChange={handleInputChange}
-                    clients={inputState.clients}
-                />
-                <FeedbackSearchResults results={inputState.results} />
-            </Container>
+            <SearchForm
+                handleFormSubmit={handleFormSubmit}
+                handleInputChange={handleInputChange}
+                clients={inputState.clients}
+            />
+            <FeedbackSearchResults results={inputState.results} />
+            {/* </Container> */}
         </div>
     );
 
